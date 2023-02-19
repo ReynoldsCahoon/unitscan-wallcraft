@@ -323,7 +323,7 @@ function unitscan_zone_targets()
         t["Vengeful Ancient"] = true
 
     elseif zone == "Stormwind City" then
-        t["Sewer Beast"] = true
+        -- t["Sewer Beast"] = true
 
     elseif zone == "Stranglethorn Vale" then
         t["Gluggle"] = true
