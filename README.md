@@ -1,10 +1,13 @@
-# unitscan - WoW 1.12 addOn 
+# unitscan_turtle    
+Target finding addon for Turtle WoW.
 
-![Alt text](http://i.imgur.com/d7TLkZm.png)
+## Credit
+[Shirsig](https://github.com/shirsig/unitscan-vanilla)
 
-This addOn automatically scans for any targetable units of your choice by name and alerts you upon finding one. Instead of the modern scanning methods which don't work for Vanilla it uses the API function *TargetByName* which was removed with TBC.
-
-The alert is visually and acoustically an exact copy of the famous addOn *_NPCScan* which first appeared during WotLK.
+## Description
+This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by adding predefined [zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) (rare or dangerous mobs) when you enter a zone.    
+Zone targets that have been found will be readded to the target list one minute after you have found them.    
+Custom targets added by the unitscan command will keep the default unitscan behaviour (not re-added after they are found).
 
 There are two commands:<br/>
 **/unitscan** lists the active scan targets<br/>
