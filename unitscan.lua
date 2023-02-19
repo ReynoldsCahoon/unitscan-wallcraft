@@ -1,13 +1,24 @@
 local unitscan = CreateFrame'Frame'
 unitscan:SetScript('OnUpdate', function() unitscan.UPDATE() end)
-unitscan:SetScript('OnEvent', function() unitscan.LOAD() end)
+unitscan:SetScript('OnEvent', function() 
+	if event == "VARIABLES_LOADED" then
+		unitscan.LOAD()
+	else
+		unitscan.load_zonetargets()
+	end
+end)
+
 unitscan:RegisterEvent'VARIABLES_LOADED'
+unitscan:RegisterEvent'MINIMAP_ZONE_CHANGED'
+unitscan:RegisterEvent'PLAYER_ENTERING_WORLD'
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
-local CHECK_INTERVAL = .1
+-- local CHECK_INTERVAL = .1
+local CHECK_INTERVAL = 1
 
 unitscan_targets = {}
+unitscan_zonetargets = {}
 
 do
 	local last_played
@@ -16,17 +27,38 @@ do
 		if not last_played or GetTime() - last_played > 10 then -- 8
 			SetCVar('MasterSoundEffects', 0)
 			SetCVar('MasterSoundEffects', 1)
-			PlaySoundFile[[Interface\AddOns\unitscan\Event_wardrum_ogre.ogg]]
-			PlaySoundFile[[Interface\AddOns\unitscan\scourge_horn.ogg]]
+			PlaySoundFile[[Interface\AddOns\unitscan_turtle\Event_wardrum_ogre.ogg]]
+			-- PlaySoundFile[[Interface\AddOns\unitscan_turtle\scourge_horn.ogg]]
 			last_played = GetTime()
 		end
 	end
 end
 
+function unitscan.load_zonetargets()
+	unitscan.reloading = true
+	unitscan_zone_targets()
+	unitscan.reloadtimer = nil
+	unitscan.reloading = nil
+	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reloaded zone targets")
+end
+
 function unitscan.check_for_targets()
 	for name, _ in unitscan_targets do
-		if unitscan.target(name) then
+		if name == unitscan.target(name) then
+			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_targets: "..name.." was found!")
 			unitscan.toggle_target(name)
+			unitscan.play_sound()
+			unitscan.flash.animation:Play()
+			unitscan.button:set_target()
+		end
+	end
+end
+
+function unitscan.check_for_zonetargets()	
+	for name, _ in unitscan_zonetargets do
+		if name == unitscan.target(name) then
+			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_zonetargets: "..name.." was found!")
+			unitscan.toggle_zonetarget(name)
 			unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
@@ -43,7 +75,12 @@ do
 		TargetByName(name, true)
 		UIErrorsFrame_OnEvent = orig
 		local target = UnitName'target'
-		return target and strupper(target) == name
+		-- return target and strupper(target) == name
+		if target then
+			return target
+		else 
+			return nil 
+		end
 	end
 end
 
@@ -93,7 +130,7 @@ function unitscan.LOAD()
 		end
 	end
 	
-	local button = CreateFrame('Button', 'unitscan_button', UIParent)
+	local button = CreateFrame("Button", "unitscan_button", UIParent)
 	button:Hide()
 	unitscan.button = button
 	button:SetPoint('BOTTOM', UIParent, 0, 128)
@@ -114,7 +151,8 @@ function unitscan.LOAD()
 		this:RegisterForClicks'LeftButtonDown'
 	end)
 	button:SetFrameStrata'FULLSCREEN_DIALOG'
-	button:SetNormalTexture[[Interface\AddOns\unitscan\UI-Achievement-Parchment-Horizontal]]
+	-- button:SetNormalTexture[[Interface\AddOns\unitscan_turtle\UI-Achievement-Parchment-Horizontal]]
+	
 	button:SetBackdrop{
 		tile = true,
 		edgeSize = 16,
@@ -140,11 +178,10 @@ function unitscan.LOAD()
 		self.glow.animation:Play()
 		self.shine.animation:Play()
 	end
-	
+
 	do
-		local background = button:GetNormalTexture()
-		background:SetDrawLayer'BACKGROUND'
-		background:ClearAllPoints()
+		local background = button:CreateTexture(nil, 'BACKGROUND')
+		background:SetTexture[[Interface\AddOns\unitscan_turtle\UI-Achievement-Parchment-Horizontal]]
 		background:SetPoint('BOTTOMLEFT', 3, 3)
 		background:SetPoint('TOPRIGHT', -3, -3)
 		background:SetTexCoord(0, 1, 0, .25)
@@ -152,7 +189,7 @@ function unitscan.LOAD()
 	
 	do
 		local title_background = button:CreateTexture(nil, 'BORDER')
-		title_background:SetTexture[[Interface\AddOns\unitscan\UI-Achievement-Title]]
+		title_background:SetTexture[[Interface\AddOns\unitscan_turtle\UI-Achievement-Title]]
 		title_background:SetPoint('TOPRIGHT', -5, -5)
 		title_background:SetPoint('LEFT', 5, 0)
 		title_background:SetHeight(18)
@@ -228,7 +265,7 @@ function unitscan.LOAD()
 		glow:SetPoint('CENTER', button, 'CENTER')
 		glow:SetWidth(400 / 300 * button:GetWidth())
 		glow:SetHeight(171 / 70 * button:GetHeight())
-		glow:SetTexture[[Interface\AddOns\unitscan\UI-Achievement-Alert-Glow]]
+		glow:SetTexture[[Interface\AddOns\unitscan_turtle\UI-Achievement-Alert-Glow]]
 		glow:SetBlendMode'ADD'
 		glow:SetTexCoord(0, .78125, 0, .66796875)
 		glow:SetAlpha(0)
@@ -258,7 +295,7 @@ function unitscan.LOAD()
 		shine:SetPoint('TOPLEFT', button, 0, 8)
 		shine:SetWidth(67 / 300 * button:GetWidth())
 		shine:SetHeight(1.28 * button:GetHeight())
-		shine:SetTexture[[Interface\AddOns\unitscan\UI-Achievement-Alert-Glow]]
+		shine:SetTexture[[Interface\AddOns\unitscan_turtle\UI-Achievement-Alert-Glow]]
 		shine:SetBlendMode'ADD'
 		shine:SetTexCoord(.78125, .912109375, 0, .28125)
 		shine:SetAlpha(0)
@@ -294,9 +331,17 @@ end
 do
 	unitscan.last_check = GetTime()
 	function unitscan.UPDATE()
-		if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
-			unitscan.last_check = GetTime()
-			unitscan.check_for_targets()
+		-- reload targets for zone
+		if unitscan.reloadtimer and (GetTime() > unitscan.reloadtimer) then
+			unitscan.load_zonetargets()
+		end
+
+		if not unitscan.reloading then
+			if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
+				unitscan.last_check = GetTime()
+				unitscan.check_for_targets()
+				unitscan.check_for_zonetargets()
+			end
 		end
 	end
 end
@@ -323,6 +368,21 @@ function unitscan.toggle_target(name)
 		unitscan.print('- ' .. key)
 	elseif key ~= '' then
 		unitscan_targets[key] = true
+		unitscan.print('+ ' .. key)
+	end
+end
+
+function unitscan.toggle_zonetarget(name)
+	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: toggle_zonetarget")
+	local key = name
+	if unitscan_zonetargets[key] then
+		unitscan_zonetargets[key] = nil
+		unitscan.print('- ' .. key)
+		
+		unitscan.reloadtimer = GetTime() + 60 -- trigger reload zone timer
+		-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reload timer started")
+	elseif key ~= '' then
+		unitscan_zonetargets[key] = true
 		unitscan.print('+ ' .. key)
 	end
 end
