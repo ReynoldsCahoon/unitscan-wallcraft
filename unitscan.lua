@@ -35,10 +35,8 @@ do
 end
 
 function unitscan.load_zonetargets()
-	unitscan.reloading = true
 	unitscan_zone_targets()
 	unitscan.reloadtimer = nil
-	unitscan.reloading = nil
 	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reloaded zone targets")
 end
 
@@ -336,12 +334,10 @@ do
 			unitscan.load_zonetargets()
 		end
 
-		if not unitscan.reloading then
-			if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
-				unitscan.last_check = GetTime()
-				unitscan.check_for_targets()
-				unitscan.check_for_zonetargets()
-			end
+		if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
+			unitscan.last_check = GetTime()
+			unitscan.check_for_targets()
+			unitscan.check_for_zonetargets()
 		end
 	end
 end
@@ -362,7 +358,8 @@ function unitscan.sorted_targets()
 end
 
 function unitscan.toggle_target(name)
-	local key = strupper(name)
+	-- local key = strupper(name)
+	local key = name
 	if unitscan_targets[key] then
 		unitscan_targets[key] = nil
 		unitscan.print('- ' .. key)
