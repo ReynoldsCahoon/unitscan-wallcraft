@@ -44,7 +44,7 @@ function unitscan.check_for_targets()
 		if name == unitscan.target(name) then
 			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_targets: "..name.." was found!")
 			unitscan.toggle_target(name)
-			-- unitscan.play_sound()
+			unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
 		end
