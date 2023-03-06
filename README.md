@@ -16,3 +16,6 @@ There are two commands:<br/>
 **/unitscan** lists the active scan targets<br/>
 **/unitscan name** adds/removes **name** to/from the scan targets<br/>
 When a target is detected it is removed and has to be readded to continue scanning for it.
+
+## Zone Targets
+The target list was pulled from classic however please create an issue for adding any missing custom Turtle WoW targets or any other dangerous/noteworthy targets.
