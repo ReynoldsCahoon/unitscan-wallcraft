@@ -74,10 +74,10 @@ do
 		local target = UnitName'target'
 		-- return target and strupper(target) == name
 		if target then
-			-- always return players, only return alive mobs
+			-- always return players, only return neutral or hostile mobs that are alive
 			if UnitIsPlayer'target' then
 				return strupper(target)
-			elseif not UnitIsDead'target' then
+			elseif (UnitReaction("target", "player") <= 4) and (not UnitIsDead'target') then
 				return strupper(target)
 			end
 		else
