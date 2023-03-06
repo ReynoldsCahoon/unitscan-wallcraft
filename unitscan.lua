@@ -14,8 +14,7 @@ unitscan:RegisterEvent'PLAYER_ENTERING_WORLD'
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
--- local CHECK_INTERVAL = .1
-local CHECK_INTERVAL = 1
+local CHECK_INTERVAL = 1 -- .1
 
 unitscan_targets = {}
 unitscan_zonetargets = {}
@@ -27,8 +26,8 @@ do
 		if not last_played or GetTime() - last_played > 10 then -- 8
 			SetCVar('MasterSoundEffects', 0)
 			SetCVar('MasterSoundEffects', 1)
-			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
-			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
+			PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
+			PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
 			last_played = GetTime()
 		end
 	end
@@ -45,7 +44,7 @@ function unitscan.check_for_targets()
 		if name == unitscan.target(name) then
 			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_targets: "..name.." was found!")
 			unitscan.toggle_target(name)
-			unitscan.play_sound()
+			-- unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
 		end
@@ -54,7 +53,7 @@ end
 
 function unitscan.check_for_zonetargets()	
 	for name, _ in unitscan_zonetargets do
-		if name == unitscan.target(name) then
+		if strupper(name) == unitscan.target(name) then
 			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_zonetargets: "..name.." was found!")
 			unitscan.toggle_zonetarget(name)
 			unitscan.play_sound()
@@ -75,8 +74,13 @@ do
 		local target = UnitName'target'
 		-- return target and strupper(target) == name
 		if target then
-			return target
-		else 
+			-- always return players, only return alive mobs
+			if UnitIsPlayer'target' then
+				return strupper(target)
+			elseif not UnitIsDead'target' then
+				return strupper(target)
+			end
+		else
 			return nil 
 		end
 	end
@@ -358,8 +362,7 @@ function unitscan.sorted_targets()
 end
 
 function unitscan.toggle_target(name)
-	-- local key = strupper(name)
-	local key = name
+	local key = strupper(name)
 	if unitscan_targets[key] then
 		unitscan_targets[key] = nil
 		unitscan.print('- ' .. key)
