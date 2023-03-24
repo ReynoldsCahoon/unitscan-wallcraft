@@ -26,8 +26,9 @@ do
 		if not last_played or GetTime() - last_played > 10 then -- 8
 			SetCVar('MasterSoundEffects', 0)
 			SetCVar('MasterSoundEffects', 1)
-			PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
-			PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
+			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
+			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
+			PlaySoundFile[[Interface\AddOns\unitscan-turtle\gruntling_horn_bb.ogg]]
 			last_played = GetTime()
 		end
 	end
@@ -40,6 +41,7 @@ function unitscan.load_zonetargets()
 end
 
 function unitscan.check_for_targets()
+	local prevTarget = UnitExists("target")
 	for name, _ in unitscan_targets do
 		if name == unitscan.target(name) then
 			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_targets: "..name.." was found!")
@@ -47,11 +49,17 @@ function unitscan.check_for_targets()
 			unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
+
+			-- restore prev target
+			if prevTarget then 
+				TargetLastTarget()
+			end
 		end
 	end
 end
 
-function unitscan.check_for_zonetargets()	
+function unitscan.check_for_zonetargets()
+	local prevTarget = UnitExists("target")
 	for name, _ in unitscan_zonetargets do
 		if strupper(name) == unitscan.target(name) then
 			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_zonetargets: "..name.." was found!")
@@ -59,6 +67,11 @@ function unitscan.check_for_zonetargets()
 			unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
+			
+			-- restore prev target
+			if prevTarget then 
+				TargetLastTarget()
+			end
 		end
 	end
 end
@@ -342,6 +355,9 @@ do
 			unitscan.last_check = GetTime()
 			unitscan.check_for_targets()
 			unitscan.check_for_zonetargets()
+			if prevTarget then
+
+			end
 		end
 	end
 end
@@ -377,13 +393,13 @@ function unitscan.toggle_zonetarget(name)
 	local key = name
 	if unitscan_zonetargets[key] then
 		unitscan_zonetargets[key] = nil
-		unitscan.print('- ' .. key)
+		-- unitscan.print('- ' .. key)
 		
 		unitscan.reloadtimer = GetTime() + 60 -- trigger reload zone timer
 		-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reload timer started")
 	elseif key ~= '' then
 		unitscan_zonetargets[key] = true
-		unitscan.print('+ ' .. key)
+		-- unitscan.print('+ ' .. key)
 	end
 end
 	
