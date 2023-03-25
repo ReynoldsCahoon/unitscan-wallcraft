@@ -12,7 +12,9 @@ Additionally, unitscan will only return mobs that are neutral or hostile and ali
 The default behaviour of unitscan has been modified so that if you are currently targeting a unit your target will not change when a unit is found.    
 A macro command */unitscantarget* has been added to target the most recently found target.
 
-Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from the targets list after they are found).
+Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from the targets list after they are found).    
+
+You can move the unitscan frame by holding ctrl and dragging.    
 
 Commands:<br/>
 **/unitscan** lists the active scan targets<br/>
