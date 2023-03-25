@@ -17,7 +17,6 @@ local YELLOW = {1, 1, .15}
 local CHECK_INTERVAL = 1 -- .1
 
 unitscan_targets = {}
-unitscan_zonetargets = {}
 
 do
 	local last_played
@@ -35,8 +34,7 @@ do
 end
 
 function unitscan.load_zonetargets()
-	unitscan_zone_targets()
-	unitscan.reloadtimer = nil
+	unitscan_zone_targets()	
 	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reloaded zone targets")
 end
 
