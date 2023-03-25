@@ -9,13 +9,15 @@ This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla
 The zone targets are set by the included [lua file](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) and cannot be modified in game.    
 Zone targets that have been found will be readded to the target list one minute after you have found them so you can continue detecting roaming targets.      
 Additionally, unitscan will only return mobs that are neutral or hostile and alive but will always return player targets regardless.    
-The default behaviour of unitscan has been modified so that if you are currently targeting a unit your target will not change when a unit is found.
+The default behaviour of unitscan has been modified so that if you are currently targeting a unit your target will not change when a unit is found.    
+A macro command */unitscantarget* has been added to target the most recently found target.
 
 Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from the targets list after they are found).
 
-There are two commands:<br/>
+Commands:<br/>
 **/unitscan** lists the active scan targets<br/>
 **/unitscan name** adds/removes **name** to/from the scan targets<br/>
+**/unitscantarget** targets the most recently found target<br/>
 When a target is detected it is removed and has to be readded to continue scanning for it.
 
 ## Updating Zone Targets
