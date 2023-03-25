@@ -53,6 +53,8 @@ function unitscan.check_for_targets()
 			-- restore prev target
 			if prevTarget then 
 				TargetLastTarget()
+			else
+				ClearTarget()
 			end
 		end
 	end
@@ -73,6 +75,8 @@ function unitscan.check_for_zonetargets()
 			-- restore prev target
 			if prevTarget then 
 				TargetLastTarget()
+			else
+				ClearTarget()
 			end
 		end
 	end
@@ -150,10 +154,10 @@ function unitscan.LOAD()
 	local button = CreateFrame("Button", "unitscan_button", UIParent)
 	button:Hide()
 	unitscan.button = button
-	button:SetPoint('BOTTOM', UIParent, 0, 128)
-	button:SetWidth(150)
+	button:SetPoint('BOTTOM', UIParent, 0, 148)
+	button:SetWidth(200)
 	button:SetHeight(42)
-	button:SetScale(1.25)
+	button:SetScale(1)
 	button:SetMovable(true)
 	button:SetUserPlaced(true)
 	button:SetClampedToScreen(true)
@@ -357,9 +361,6 @@ do
 			unitscan.last_check = GetTime()
 			unitscan.check_for_targets()
 			unitscan.check_for_zonetargets()
-			if prevTarget then
-
-			end
 		end
 	end
 end
