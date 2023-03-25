@@ -18,6 +18,10 @@ local CHECK_INTERVAL = 1 -- .1
 
 unitscan_targets = {}
 
+local prevTarget
+local dead
+local reaction
+
 do
 	local last_played
 	
@@ -38,46 +42,47 @@ function unitscan.load_zonetargets()
 	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reloaded zone targets")
 end
 
+function unitscan.restore_target()
+	if prevTarget then 
+		TargetLastTarget()
+	elseif dead then
+		ClearTarget()
+	end
+	dead = nil
+	reaction = nil
+	prevTarget = nil
+end
+
 function unitscan.check_for_targets()
-	local prevTarget = UnitExists("target")
 	for name, _ in unitscan_targets do
 		if name == unitscan.target(name) then
 			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_targets: "..name.." was found!")
+			unitscan.foundTarget = name
+
 			unitscan.toggle_target(name)
 			unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
 
-			-- store last target
-			unitscan.lastTarget = name
-			-- restore prev target
-			if prevTarget then 
-				TargetLastTarget()
-			-- else
-				-- ClearTarget()
-			end
+			unitscan.restore_target()
 		end
 	end
 end
 
 function unitscan.check_for_zonetargets()
-	local prevTarget = UnitExists("target")
 	for name, _ in unitscan_zonetargets do
-		if strupper(name) == unitscan.target(name) then
-			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_zonetargets: "..name.." was found!")
-			unitscan.toggle_zonetarget(name)
-			unitscan.play_sound()
-			unitscan.flash.animation:Play()
-			unitscan.button:set_target()
-
-			-- store last target
-			unitscan.lastTarget = name			
-			-- restore prev target
-			if prevTarget then 
-				TargetLastTarget()
-			-- else
-				-- ClearTarget()
+		if strupper(name) == unitscan.target(name) then			
+			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_zonetargets: "..name.." was found!")			
+			if (not dead) and (reaction <= 4) then -- only for neutral or hostile mobs that are alive
+				unitscan.foundTarget = name
+				
+				unitscan.toggle_zonetarget(name)
+				unitscan.play_sound()
+				unitscan.flash.animation:Play()
+				unitscan.button:set_target()
 			end
+
+			unitscan.restore_target()
 		end
 	end
 end
@@ -85,22 +90,20 @@ end
 do
 	local pass = function() end
 
-	function unitscan.target(name)
+	function unitscan.target(name)		
 		local orig = UIErrorsFrame_OnEvent
 		UIErrorsFrame_OnEvent = pass
+		prevTarget = UnitExists("target")
 		TargetByName(name, true)
 		UIErrorsFrame_OnEvent = orig
-		local target = UnitName'target'
-		-- return target and strupper(target) == name
+		local target = UnitName("target")
+		dead = UnitIsDead'target'
+		reaction = UnitReaction("target", "player")
+
 		if target then
-			-- always return players, only return neutral or hostile mobs that are alive
-			if UnitIsPlayer'target' then
-				return strupper(target)
-			elseif (UnitReaction("target", "player") <= 4) and (not UnitIsDead'target') then
-				return strupper(target)
-			end
+			return strupper(target)
 		else
-			return nil 
+			return nil
 		end
 	end
 end
@@ -415,7 +418,7 @@ end
 
 SLASH_UNITSCANTARGET1 = '/unitscantarget'
 function SlashCmdList.UNITSCANTARGET()
-	if unitscan.lastTarget then
-		TargetByName(unitscan.lastTarget, true)
+	if unitscan.foundTarget then
+		TargetByName(unitscan.foundTarget, true)
 	end
 end
