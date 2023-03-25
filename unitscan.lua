@@ -54,7 +54,7 @@ function unitscan.check_for_targets()
 			if prevTarget then 
 				TargetLastTarget()
 			else
-				ClearTarget()
+				-- ClearTarget()
 			end
 		end
 	end
@@ -76,7 +76,7 @@ function unitscan.check_for_zonetargets()
 			if prevTarget then 
 				TargetLastTarget()
 			else
-				ClearTarget()
+				-- ClearTarget()
 			end
 		end
 	end
