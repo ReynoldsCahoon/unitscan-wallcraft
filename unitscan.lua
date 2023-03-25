@@ -395,7 +395,7 @@ function unitscan.toggle_zonetarget(name)
 	if unitscan_zonetargets[name] then
 		unitscan_zonetargets[name] = nil
 		unitscan.print(name .. ' was found!')		
-		unitscan.reloadtimer = GetTime() + 60 -- trigger reload zone timer
+		unitscan.reloadtimer = GetTime() + 90 -- trigger reload zone timer
 	end
 end
 	
