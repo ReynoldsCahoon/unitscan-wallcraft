@@ -50,6 +50,8 @@ function unitscan.check_for_targets()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
 
+			-- store last target
+			unitscan.lastTarget = name
 			-- restore prev target
 			if prevTarget then 
 				TargetLastTarget()
@@ -67,7 +69,9 @@ function unitscan.check_for_zonetargets()
 			unitscan.play_sound()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
-			
+
+			-- store last target
+			unitscan.lastTarget = name			
 			-- restore prev target
 			if prevTarget then 
 				TargetLastTarget()
@@ -390,16 +394,10 @@ end
 
 function unitscan.toggle_zonetarget(name)
 	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: toggle_zonetarget")
-	local key = name
-	if unitscan_zonetargets[key] then
-		unitscan_zonetargets[key] = nil
-		-- unitscan.print('- ' .. key)
-		
+	if unitscan_zonetargets[name] then
+		unitscan_zonetargets[name] = nil
+		unitscan.print(name .. ' was found!')		
 		unitscan.reloadtimer = GetTime() + 60 -- trigger reload zone timer
-		-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reload timer started")
-	elseif key ~= '' then
-		unitscan_zonetargets[key] = true
-		-- unitscan.print('+ ' .. key)
 	end
 end
 	
@@ -413,5 +411,12 @@ function SlashCmdList.UNITSCAN(parameter)
 		end
 	else
 		unitscan.toggle_target(name)
+	end
+end
+
+SLASH_UNITSCANTARGET1 = '/unitscantarget'
+function SlashCmdList.UNITSCANTARGET()
+	if unitscan.lastTarget then
+		TargetByName(unitscan.lastTarget, true)
 	end
 end
