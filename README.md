@@ -13,7 +13,7 @@ This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla
 - Unitscan will only alert you of NPC targets that are neutral or hostile and alive. You will always be alerted for player targets regardless.
 - If you are targeting a unit when a target is found, unitscan will not auto select the found target.
 - A macro command */unitscantarget* has been added to target the most recently found target.
-- Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from the targets list after they are found).
+- Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from targets after they are found).
 - You can move the unitscan frame by holding ctrl and dragging.
 
 ## Commands
