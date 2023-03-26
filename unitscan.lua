@@ -398,7 +398,7 @@ function unitscan.toggle_zonetarget(name)
 	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: toggle_zonetarget")
 	if unitscan_zonetargets[name] then
 		unitscan_zonetargets[name] = nil
-		unitscan.print(name .. ' was found!')		
+		-- unitscan.print(name .. ' was found!')	
 		unitscan.reloadtimer = GetTime() + 90 -- trigger reload zone timer
 	end
 end
