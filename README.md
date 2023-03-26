@@ -5,23 +5,21 @@ Target finding addon for Turtle WoW.
 [Shirsig](https://github.com/shirsig/unitscan-vanilla)
 
 ## Description
-This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically adding predefined zone targets (rare or dangerous mobs) when you enter a zone.    
-The zone targets are set by the included [lua file](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) and cannot be modified in game.    
-Zone targets that have been found will be readded to the target list 90 seconds after you have found them so you can continue detecting roaming targets.      
-Additionally, unitscan will only return mobs that are neutral or hostile and alive but will always return player targets regardless.    
-The default behaviour of unitscan has been modified so that if you are currently targeting a unit your target will not change when a unit is found.    
-A macro command */unitscantarget* has been added to target the most recently found target.
+This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically adding predefined zone targets (rare or dangerous mobs) when you enter a zone.
 
-Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from the targets list after they are found).    
+- The zone targets are set by the included [lua file](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) and cannot be modified in game.
+- Unitscan will only look for zone targets specific to your current zone. The target list is reloaded when you change zones.
+- Zone targets will be reloaded 90 seconds after you have found a target (to re-detect roaming targets).
+- Unitscan will only alert you of NPC targets that are neutral or hostile and alive. You will always be alerted for player targets regardless.
+- If you are targeting a unit when a target is found, unitscan will not auto select the found target.
+- A macro command */unitscantarget* has been added to target the most recently found target.
+- Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from the targets list after they are found).
+- You can move the unitscan frame by holding ctrl and dragging.
 
-You can move the unitscan frame by holding ctrl and dragging.    
-
-Commands:<br/>
-**/unitscan** lists the active scan targets<br/>
-**/unitscan name** adds/removes **name** to/from the scan targets<br/>
-**/unitscantarget** targets the most recently found target<br/>
-
-When a manually added target is detected it is removed and has to be added again to continue scanning for it.
+## Commands
+**/unitscan** *lists the active scan targets*    
+**/unitscan name** *adds/removes **name** to/from the scan targets*    
+**/unitscantarget** *targets the most recently found target*    
 
 ## Updating Zone Targets
 The target list was pulled from classic however please [create an issue](https://github.com/GryllsAddons/unitscan-turtle/issues) for adding any missing custom Turtle WoW targets or any other dangerous or noteworthy targets.
