@@ -354,10 +354,10 @@ end
 
 do
 	unitscan.last_check = GetTime()
-	function unitscan.UPDATE()
-		-- reload targets for zone
-		if unitscan.reloadtimer and (GetTime() > unitscan.reloadtimer) then
-			unitscan.load_zonetargets()
+	function unitscan.UPDATE()		
+		if unitscan.reloadtimer and (GetTime() > unitscan.reloadtimer) then			
+			unitscan.load_zonetargets() -- reload targets for zone
+			unitscan.reloadtimer = nil -- reset reload timer
 		end
 
 		if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
@@ -398,7 +398,7 @@ function unitscan.toggle_zonetarget(name)
 	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: toggle_zonetarget")
 	if unitscan_zonetargets[name] then
 		unitscan_zonetargets[name] = nil
-		-- unitscan.print(name .. ' was found!')	
+		unitscan.print(name .. ' was found!')
 		unitscan.reloadtimer = GetTime() + 90 -- trigger reload zone timer
 	end
 end
