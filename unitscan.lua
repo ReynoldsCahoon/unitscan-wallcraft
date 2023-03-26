@@ -47,6 +47,8 @@ function unitscan.restore_target()
 		TargetLastTarget()
 	elseif dead then
 		ClearTarget()
+	elseif reaction > 4 then
+		ClearTarget()
 	end
 	dead = nil
 	reaction = nil
@@ -228,7 +230,7 @@ function unitscan.LOAD()
 		button:SetFontString(title)
 
 		local subtitle = button:CreateFontString(nil, 'OVERLAY')
-		subtitle:SetFont([[Fonts\FRIZQT__.TTF]], 9)
+		subtitle:SetFont([[Fonts\FRIZQT__.TTF]], 12)
 		subtitle:SetTextColor(0, 0, 0)
 		subtitle:SetPoint('TOPLEFT', title, 'BOTTOMLEFT', 0, -4)
 		subtitle:SetPoint('RIGHT', title )
