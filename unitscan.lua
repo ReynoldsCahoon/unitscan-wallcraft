@@ -14,7 +14,7 @@ unitscan:RegisterEvent'PLAYER_ENTERING_WORLD'
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
-local CHECK_INTERVAL = 1 -- .1
+local CHECK_INTERVAL = .1 -- .1
 
 unitscan_targets = {}
 
