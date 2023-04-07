@@ -11,7 +11,7 @@ This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla
 - Unitscan will only look for zone targets specific to your current zone. The target list is reloaded when you change zones.
 - Zone targets will be reloaded 90 seconds after you have found a target (to re-detect roaming targets).
 - Unitscan will only alert you of NPC targets that are neutral or hostile and alive. You will always be alerted for player targets regardless.
-- If you are targeting a unit when a target is found, unitscan will not auto select the found target.
+- Unitscan will not auto target the target when it is found, please click the target in the unitscan window or use the macro command below.
 - A macro command */unitscantarget* has been added to target the most recently found target.
 - Custom targets added by the /unitscan command will keep the default unitscan behaviour (removed from targets after they are found).
 - You can move the unitscan frame by holding ctrl and dragging.
