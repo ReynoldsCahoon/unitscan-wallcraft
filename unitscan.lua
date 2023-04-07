@@ -14,7 +14,7 @@ unitscan:RegisterEvent'PLAYER_ENTERING_WORLD'
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
-local CHECK_INTERVAL = .1 -- .1
+local CHECK_INTERVAL = 1 -- .1
 
 unitscan_targets = {}
 
@@ -55,6 +55,17 @@ function unitscan.restore_target()
 	prevTarget = nil
 end
 
+function unitscan.clear_target()
+	if prevTarget then 
+		TargetLastTarget()
+	else
+		ClearTarget()
+	end
+	dead = nil
+	reaction = nil
+	prevTarget = nil
+end
+
 function unitscan.check_for_targets()
 	for name, _ in unitscan_targets do
 		if name == unitscan.target(name) then
@@ -66,7 +77,8 @@ function unitscan.check_for_targets()
 			unitscan.flash.animation:Play()
 			unitscan.button:set_target()
 
-			unitscan.restore_target()
+			-- unitscan.restore_target()
+			unitscan.clear_target()
 		end
 	end
 end
@@ -84,7 +96,8 @@ function unitscan.check_for_zonetargets()
 				unitscan.button:set_target()
 			end
 
-			unitscan.restore_target()
+			-- unitscan.restore_target()
+			unitscan.clear_target()
 		end
 	end
 end
