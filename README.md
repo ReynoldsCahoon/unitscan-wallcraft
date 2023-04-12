@@ -5,7 +5,8 @@ Target finding addon for Turtle WoW.
 [Shirsig](https://github.com/shirsig/unitscan-vanilla)
 
 ## Description
-This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically adding predefined zone targets (rare or dangerous mobs) when you enter a zone.
+This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically adding predefined zone targets (rare or dangerous mobs) when you enter a zone. The known rares etc are included with the addon - no need to add them manually.    
+You can add custom targets for instance to find players by using the command /unitscan *name* (please see commands below).    
 
 - The zone targets are set by the included [lua file](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) and cannot be modified in game.
 - Unitscan will only look for zone targets specific to your current zone. The target list is reloaded when you change zones.
