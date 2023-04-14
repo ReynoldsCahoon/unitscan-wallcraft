@@ -18,10 +18,6 @@ local CHECK_INTERVAL = 1 -- .1
 
 unitscan_targets = {}
 
-local prevTarget
-local dead
-local reaction
-
 do
 	local last_played
 	
@@ -31,95 +27,87 @@ do
 			SetCVar('MasterSoundEffects', 1)
 			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
 			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
-			PlaySoundFile[[Interface\AddOns\unitscan-turtle\gruntling_horn_bb.ogg]]
+			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\gruntling_horn_bb.ogg]]
 			last_played = GetTime()
 		end
 	end
 end
 
 function unitscan.load_zonetargets()
-	unitscan_zone_targets()	
-	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: reloaded zone targets")
+	unitscan_zone_targets()
 end
 
-function unitscan.restore_target()
-	if prevTarget then 
-		TargetLastTarget()
-	elseif dead then
-		ClearTarget()
-	elseif reaction > 4 then
-		ClearTarget()
-	end
-	dead = nil
-	reaction = nil
+local prevTarget
+local prevTargetName
+local isDead
+local canAttack
+
+local _PlaySound
+local _UIErrorsFrame_OnEvent
+
+function unitscan.reset()
 	prevTarget = nil
+	prevTargetName = nil
+	isDead = nil
+	canAttack = nil	
 end
 
-function unitscan.clear_target()
-	if prevTarget then 
-		TargetLastTarget()
+function unitscan.restoreTarget()
+	local targetName = UnitName("target")
+	if prevTarget then
+		if (prevTargetName ~= targetName) then
+			TargetLastTarget()
+		end
 	else
 		ClearTarget()
 	end
-	dead = nil
-	reaction = nil
-	prevTarget = nil
+	PlaySound = _PlaySound -- unmute
+	unitscan.reset()
 end
 
 function unitscan.check_for_targets()
 	for name, _ in unitscan_targets do
 		if name == unitscan.target(name) then
-			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_targets: "..name.." was found!")
 			unitscan.foundTarget = name
-
 			unitscan.toggle_target(name)
 			unitscan.play_sound()
 			unitscan.flash.animation:Play()
-			unitscan.button:set_target()
-
-			-- unitscan.restore_target()
-			unitscan.clear_target()
+			unitscan.button:set_target()			
 		end
+		unitscan.restoreTarget()
 	end
-end
 
-function unitscan.check_for_zonetargets()
 	for name, _ in unitscan_zonetargets do
-		if strupper(name) == unitscan.target(name) then			
-			-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan check_for_zonetargets: "..name.." was found!")			
-			if (not dead) and (reaction <= 4) then -- only for neutral or hostile mobs that are alive
-				unitscan.foundTarget = name
-				
+		if strupper(name) == unitscan.target(name) then
+			if ((not isDead) and canAttack) then
+				unitscan.foundTarget = name		
 				unitscan.toggle_zonetarget(name)
 				unitscan.play_sound()
 				unitscan.flash.animation:Play()
 				unitscan.button:set_target()
-			end
-
-			-- unitscan.restore_target()
-			unitscan.clear_target()
+			end			
 		end
+		unitscan.restoreTarget()
 	end
 end
 
 do
-	local pass = function() end
-
-	function unitscan.target(name)		
-		local orig = UIErrorsFrame_OnEvent
-		UIErrorsFrame_OnEvent = pass
+	function unitscan.target(name)
 		prevTarget = UnitExists("target")
-		TargetByName(name, true)
-		UIErrorsFrame_OnEvent = orig
-		local target = UnitName("target")
-		dead = UnitIsDead'target'
-		reaction = UnitReaction("target", "player")
+		prevTargetName = UnitName("target")
 
-		if target then
-			return strupper(target)
-		else
-			return nil
-		end
+		_PlaySound = PlaySound
+		PlaySound = function() end -- mute
+		_UIErrorsFrame_OnEvent = UIErrorsFrame_OnEvent
+		UIErrorsFrame_OnEvent = function() end
+		TargetByName(name, true)
+		UIErrorsFrame_OnEvent = _UIErrorsFrame_OnEvent
+
+		local target = UnitName("target")
+		isDead = UnitIsDead("target")
+		canAttack = UnitCanAttack("target", "player")		
+
+		return target and strupper(target)
 	end
 end
 
@@ -190,7 +178,6 @@ function unitscan.LOAD()
 		this:RegisterForClicks'LeftButtonDown'
 	end)
 	button:SetFrameStrata'FULLSCREEN_DIALOG'
-	-- button:SetNormalTexture[[Interface\AddOns\unitscan-turtle\UI-Achievement-Parchment-Horizontal]]
 	
 	button:SetBackdrop{
 		tile = true,
@@ -370,7 +357,7 @@ end
 do
 	unitscan.last_check = GetTime()
 	function unitscan.UPDATE()		
-		if unitscan.reloadtimer and (GetTime() > unitscan.reloadtimer) then			
+		if ((unitscan.reloadtimer) and (GetTime() > unitscan.reloadtimer)) then			
 			unitscan.load_zonetargets() -- reload targets for zone
 			unitscan.reloadtimer = nil -- reset reload timer
 		end
@@ -378,7 +365,6 @@ do
 		if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
 			unitscan.last_check = GetTime()
 			unitscan.check_for_targets()
-			unitscan.check_for_zonetargets()
 		end
 	end
 end
@@ -398,6 +384,15 @@ function unitscan.sorted_targets()
 	return sorted_targets
 end
 
+function unitscan.sorted_zonetargets()
+	local sorted_targets = {}
+	for key in pairs(unitscan_zonetargets) do
+		tinsert(sorted_targets, key)
+	end
+	sort(sorted_targets, function(key1, key2) return key1 < key2 end)
+	return sorted_targets
+end
+
 function unitscan.toggle_target(name)
 	local key = strupper(name)
 	if unitscan_targets[key] then
@@ -410,7 +405,6 @@ function unitscan.toggle_target(name)
 end
 
 function unitscan.toggle_zonetarget(name)
-	-- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: toggle_zonetarget")
 	if unitscan_zonetargets[name] then
 		unitscan_zonetargets[name] = nil
 		unitscan.print(name .. ' was found!')
@@ -423,7 +417,13 @@ function SlashCmdList.UNITSCAN(parameter)
 	local _, _, name = strfind(parameter, '^%s*(.-)%s*$')
 	
 	if name == '' then
+		DEFAULT_CHAT_FRAME:AddMessage("|cffff8000<unitscan> Added targets:|r")
 		for _, key in ipairs(unitscan.sorted_targets()) do
+			unitscan.print(key)
+		end
+		-- zone targets
+		DEFAULT_CHAT_FRAME:AddMessage("|cffff8000<unitscan> Zone targets:|r")
+		for _, key in ipairs(unitscan.sorted_zonetargets()) do
 			unitscan.print(key)
 		end
 	else
