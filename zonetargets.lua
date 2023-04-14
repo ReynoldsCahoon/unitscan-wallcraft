@@ -2,11 +2,9 @@ function unitscan_zone_targets()
 	local zone = GetZoneText()
 	if not zone then return end
 
-    -- DEFAULT_CHAT_FRAME:AddMessage("DEBUG: unitscan: Loading zone targets for "..zone)
     unitscan_zonetargets = {} -- reset zonetargets
     local t = unitscan_zonetargets
     
-	-- add targets for current zone
 	if zone == "Alterac Mountains" then
 		t["Araga"] = true
         t["Cranky Benj"] = true
