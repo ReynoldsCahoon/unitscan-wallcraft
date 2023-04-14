@@ -58,7 +58,7 @@ function unitscan.restoreTarget()
 		if (prevTargetName ~= targetName) then
 			TargetLastTarget()
 		end
-	else
+	elseif (not (prevTargetName == targetName)) then
 		ClearTarget()
 	end
 	PlaySound = _PlaySound -- unmute
