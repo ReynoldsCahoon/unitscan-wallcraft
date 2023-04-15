@@ -5,9 +5,11 @@ Unitscan addon modified for Turtle WoW.
 [Shirsig](https://github.com/shirsig/unitscan-vanilla)
 
 ## Description
-This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically managing active scan targets (rare or dangerous mobs) when you enter a zone.  
+This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically managing active scan targets ([zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua)) when you enter a zone.
 
-The zone targets include all rare mobs in game - please see [zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) for a list of the included targets.    
+The [zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) includes all rare mobs in vanilla as a baseline.
+
+This addon has a focus on leveling and [hardcore](https://turtle-wow.org/#/hardcore-mode) which is reflected in the choice of zone targets.
 
 You can add custom targets to find players or targets not included in the zone targets list by using the command /unitscan *name*.
 
