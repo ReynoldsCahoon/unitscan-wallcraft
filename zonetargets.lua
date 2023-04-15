@@ -253,6 +253,9 @@ function unitscan_zone_targets()
         t["Snagglespear"] = true
         t["The Rake"] = true
 
+    elseif zone == "Orgrimmar" then
+        t["Spectral Stalker"] = true        
+
     elseif zone == "Razorfen Kraul" then
         t["Blind Hunter"] = true
         t["Earthcaller Halmgar"] = true
@@ -321,7 +324,8 @@ function unitscan_zone_targets()
         t["Vengeful Ancient"] = true
 
     elseif zone == "Stormwind City" then
-        -- t["Sewer Beast"] = true
+        -- t["Sewer Beast"] = true        
+        t["Onyxia's Elite Guard"] = true
 
     elseif zone == "Stranglethorn Vale" then
         t["Gluggle"] = true
