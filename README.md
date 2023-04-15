@@ -1,5 +1,5 @@
 # unitscan_turtle    
-Unitscan addon modified for Turtle WoW.
+[Unitscan](https://github.com/shirsig/unitscan-vanilla) modified for [Turtle WoW](https://turtle-wow.org/).
 
 ## Credit
 [Shirsig](https://github.com/shirsig/unitscan-vanilla)
