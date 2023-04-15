@@ -228,6 +228,9 @@ function unitscan_zone_targets()
         t["Scargil"] = true
         t["Tamra Stormpike"] = true
 
+    elseif zone == "Ironforge" then
+        t["Spectral Stalker"] = true
+
     elseif zone == "Loch Modan" then
         t["Boss Galgosh"] = true
         t["Digmaster Shovelphlange"] = true
