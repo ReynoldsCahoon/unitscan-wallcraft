@@ -2,7 +2,7 @@
 [Unitscan](https://github.com/shirsig/unitscan-vanilla) modified for [Turtle WoW](https://turtle-wow.org/).
 
 ## Issues
-The target switching may break wanding/autoattack. Installing [Roid-Macros](https://github.com/DennisWG/Roid-Macros) will fix this issue.
+Target switching may cause wanding/autoattack to stop. Installing [Roid-Macros](https://github.com/DennisWG/Roid-Macros) will fix this issue.
 
 ## Description
 This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically managing active scan targets ([zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua)) when you enter a zone.
