@@ -27,7 +27,7 @@ do
 			SetCVar('MasterSoundEffects', 1)
 			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
 			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
-			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\gruntling_horn_bb.ogg]]
+			PlaySoundFile[[Interface\AddOns\unitscan-turtle\gruntling_horn_bb.ogg]]
 			last_played = GetTime()
 		end
 	end
@@ -38,30 +38,26 @@ function unitscan.load_zonetargets()
 end
 
 local prevTarget
-local prevTargetName
-local isDead
-local canAttack
+local foundTarget
+local zonecondition
 
 local _PlaySound
 local _UIErrorsFrame_OnEvent
 
 function unitscan.reset()
 	prevTarget = nil
-	prevTargetName = nil
-	isDead = nil
-	canAttack = nil	
+	foundTarget = nil
+	zonecondition = nil	
 end
 
 function unitscan.restoreTarget()
-	local targetName = UnitName("target")
-	if prevTarget then
-		if (prevTargetName ~= targetName) then
-			TargetLastTarget()
-		end
-	elseif (not (prevTargetName == targetName)) then
-		ClearTarget()
+	if not (prevTarget == foundTarget) then
+		_PlaySound = PlaySound
+		PlaySound = function() end -- mute
+		TargetLastTarget()
+		PlaySound = _PlaySound -- unmute
 	end
-	PlaySound = _PlaySound -- unmute
+	
 	unitscan.reset()
 end
 
@@ -79,7 +75,7 @@ function unitscan.check_for_targets()
 
 	for name, _ in unitscan_zonetargets do
 		if strupper(name) == unitscan.target(name) then
-			if ((not isDead) and canAttack) then
+			if (zonecondition) then				
 				unitscan.foundTarget = name		
 				unitscan.toggle_zonetarget(name)
 				unitscan.play_sound()
@@ -93,21 +89,24 @@ end
 
 do
 	function unitscan.target(name)
-		prevTarget = UnitExists("target")
-		prevTargetName = UnitName("target")
+		prevTarget = UnitName("target")
 
 		_PlaySound = PlaySound
 		PlaySound = function() end -- mute
 		_UIErrorsFrame_OnEvent = UIErrorsFrame_OnEvent
 		UIErrorsFrame_OnEvent = function() end
+		
 		TargetByName(name, true)
+		
 		UIErrorsFrame_OnEvent = _UIErrorsFrame_OnEvent
+		PlaySound = _PlaySound -- unmute
 
-		local target = UnitName("target")
-		isDead = UnitIsDead("target")
-		canAttack = UnitCanAttack("target", "player")		
+		foundTarget = UnitName("target")
+		if (not UnitIsDead("target")) and UnitCanAttack("target", "player") then
+			zonecondition = true
+		end
 
-		return target and strupper(target)
+		return foundTarget and strupper(foundTarget)
 	end
 end
 
