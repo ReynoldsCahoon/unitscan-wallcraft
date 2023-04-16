@@ -14,7 +14,7 @@ unitscan:RegisterEvent'PLAYER_ENTERING_WORLD'
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
-local CHECK_INTERVAL = 1 -- .1
+local CHECK_INTERVAL = .1
 
 unitscan_targets = {}
 
@@ -51,13 +51,14 @@ function unitscan.reset()
 end
 
 function unitscan.restoreTarget()
-	if not (prevTarget == foundTarget) then
-		_PlaySound = PlaySound
-		PlaySound = function() end -- mute
-		TargetLastTarget()
-		PlaySound = _PlaySound -- unmute
+	if foundTarget then
+		if not (prevTarget == foundTarget) then
+			_PlaySound = PlaySound
+			PlaySound = function() end -- mute
+			TargetLastTarget()
+			PlaySound = _PlaySound -- unmute	
+		end
 	end
-	
 	unitscan.reset()
 end
 
@@ -359,6 +360,7 @@ do
 		if ((unitscan.reloadtimer) and (GetTime() > unitscan.reloadtimer)) then			
 			unitscan.load_zonetargets() -- reload targets for zone
 			unitscan.reloadtimer = nil -- reset reload timer
+			unitscan.print('reloaded zone targets')
 		end
 
 		if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
@@ -403,7 +405,7 @@ function unitscan.toggle_target(name)
 	end
 end
 
-function unitscan.toggle_zonetarget(name)
+function unitscan.toggle_zonetarget(name)	
 	if unitscan_zonetargets[name] then
 		unitscan_zonetargets[name] = nil
 		unitscan.print(name .. ' was found!')
