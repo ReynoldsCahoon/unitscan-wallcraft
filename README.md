@@ -2,7 +2,7 @@
 [Unitscan](https://github.com/shirsig/unitscan-vanilla) modified for [Turtle WoW](https://turtle-wow.org/).
 
 ## Issues
-Target switching may cause wanding/auto attack to stop.
+Target switching by the addon may cause wanding/auto attack to stop.
 
 ## Description
 This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically managing active scan targets ([zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua)) when you enter a zone.
