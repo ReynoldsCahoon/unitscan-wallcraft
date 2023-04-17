@@ -14,11 +14,13 @@ Unitscan will only look for zone targets specific to your current zone. The targ
 
 Zone targets will be reloaded 90 seconds after you have found a target (to re-detect roaming targets).
 
-Unitscan will alert you of NPC targets that you can attack and are alive. 
+Unitscan will alert you of NPC targets that you can attack and are alive.
 
 You will always be alerted for player targets regardless.
 
 Targets added by the /unitscan command will be removed from active scan targets after they are found.
+
+**Unitscan will pause scanning when in combat or when auto attack, auto shoot and wanding are active.**
 
 You can move the unitscan frame by holding ctrl and dragging.
  
