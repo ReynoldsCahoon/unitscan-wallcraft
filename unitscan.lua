@@ -14,7 +14,7 @@ unitscan:RegisterEvent'PLAYER_ENTERING_WORLD'
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
-local CHECK_INTERVAL = .1
+local CHECK_INTERVAL = 1
 
 unitscan_targets = {}
 
@@ -22,9 +22,9 @@ do
 	local last_played
 	
 	function unitscan.play_sound()
-		if not last_played or GetTime() - last_played > 10 then -- 8
-			SetCVar('MasterSoundEffects', 0)
-			SetCVar('MasterSoundEffects', 1)
+		if not last_played or GetTime() - last_played > 10 then
+			-- SetCVar('MasterSoundEffects', 0)
+			-- SetCVar('MasterSoundEffects', 1)
 			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\Event_wardrum_ogre.ogg]]
 			-- PlaySoundFile[[Interface\AddOns\unitscan-turtle\scourge_horn.ogg]]
 			PlaySoundFile[[Interface\AddOns\unitscan-turtle\gruntling_horn_bb.ogg]]
@@ -39,7 +39,6 @@ end
 
 local prevTarget
 local foundTarget
-local zonecondition
 
 local _PlaySound
 local _UIErrorsFrame_OnEvent
@@ -47,11 +46,10 @@ local _UIErrorsFrame_OnEvent
 function unitscan.reset()
 	prevTarget = nil
 	foundTarget = nil
-	zonecondition = nil	
 end
 
 function unitscan.restoreTarget()
-	if foundTarget then
+	if foundTarget and UnitExists("target") then
 		if not (prevTarget == foundTarget) then
 			_PlaySound = PlaySound
 			PlaySound = function() end -- mute
@@ -76,13 +74,11 @@ function unitscan.check_for_targets()
 
 	for name, _ in unitscan_zonetargets do
 		if strupper(name) == unitscan.target(name) then
-			if (zonecondition) then				
-				unitscan.foundTarget = name		
-				unitscan.toggle_zonetarget(name)
-				unitscan.play_sound()
-				unitscan.flash.animation:Play()
-				unitscan.button:set_target()
-			end			
+			unitscan.foundTarget = name		
+			unitscan.toggle_zonetarget(name)
+			unitscan.play_sound()
+			unitscan.flash.animation:Play()
+			unitscan.button:set_target()
 		end
 		unitscan.restoreTarget()
 	end
@@ -103,11 +99,11 @@ do
 		PlaySound = _PlaySound -- unmute
 
 		foundTarget = UnitName("target")
-		if (not UnitIsDead("target")) and UnitCanAttack("target", "player") then
-			zonecondition = true
-		end
-
-		return foundTarget and strupper(foundTarget)
+		if UnitIsPlayer("target") then
+			return foundTarget and strupper(foundTarget)
+		elseif (not UnitIsDead("target")) and UnitCanAttack("target", "player") then
+			return foundTarget and strupper(foundTarget)
+		end		
 	end
 end
 
@@ -360,7 +356,7 @@ do
 		if ((unitscan.reloadtimer) and (GetTime() > unitscan.reloadtimer)) then			
 			unitscan.load_zonetargets() -- reload targets for zone
 			unitscan.reloadtimer = nil -- reset reload timer
-			unitscan.print('reloaded zone targets')
+			-- unitscan.print('reloaded zone targets')
 		end
 
 		if GetTime() - unitscan.last_check >= CHECK_INTERVAL then
@@ -405,10 +401,11 @@ function unitscan.toggle_target(name)
 	end
 end
 
-function unitscan.toggle_zonetarget(name)	
-	if unitscan_zonetargets[name] then
-		unitscan_zonetargets[name] = nil
-		unitscan.print(name .. ' was found!')
+function unitscan.toggle_zonetarget(name)
+	local key = name
+	if unitscan_zonetargets[key] then
+		unitscan_zonetargets[key] = nil
+		unitscan.print(key .. ' was found!')
 		unitscan.reloadtimer = GetTime() + 90 -- trigger reload zone timer
 	end
 end
