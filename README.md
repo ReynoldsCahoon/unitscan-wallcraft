@@ -27,6 +27,11 @@ You can move the unitscan frame by holding ctrl and dragging.
 **Please note unitscan-turtle will not auto target the target when it is found.**    
 **Click the target in the unitscan window or use the macro /unitscantarget to target the mob.**
 
+## Addon Compatibility
+When scanning for targets unitscan will use the [TargetByName](https://wowpedia.fandom.com/wiki/API_TargetByName) function and looks for an exact match.     
+This causes the game to switch targets if the named target is nearby. Unitscan will then restore your original target.     
+Addons which do something when you switch targets (such as issue an alert if targets are PvP flagged) may trigger for the found target.
+
 ## Commands
 **/unitscan** *lists the active scan targets*    
 **/unitscan name** *adds/removes **name** to/from the active scan targets*    
