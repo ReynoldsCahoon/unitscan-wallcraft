@@ -28,9 +28,7 @@ You can move the unitscan frame by holding ctrl and dragging.
 **Click the target in the unitscan window or use the macro /unitscantarget to target the mob.**
 
 ## Addon Compatibility
-When scanning for targets unitscan will use the [TargetByName](https://wowpedia.fandom.com/wiki/API_TargetByName) function to look for an exact target match.     
-This causes the game to switch targets if the named target is nearby. Unitscan will then restore your original target.     
-Addons which do something when you switch targets (such as issue an alert if targets are PvP flagged) may trigger for the found target.
+Unitscan uses the [TargetByName](https://wowpedia.fandom.com/wiki/API_TargetByName) function to scan through the list of targets to find an exact match. This causes the game to switch targets if the named target is nearby. Unitscan will immediately restore your original target however if you are using addons that do something when you switch targets (such as issue an alert if targets are PvP flagged) then they may trigger for the found target.
 
 ## Commands
 **/unitscan** *lists the active scan targets*    
