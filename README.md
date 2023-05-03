@@ -35,5 +35,8 @@ Unitscan uses the [TargetByName](https://wowpedia.fandom.com/wiki/API_TargetByNa
 **/unitscan name** *adds/removes **name** to/from the active scan targets*    
 **/unitscantarget** *targets the most recently found target*    
 
+## Reccomended additional addons
+To see target abilities in the tooltip please see [codex](https://github.com/nakda/codex/tree/main).
+
 ## Updating Zone Targets
 The target list was pulled from classic however please [create an issue](https://github.com/GryllsAddons/unitscan-turtle/issues) for adding any missing custom Turtle WoW targets or any other dangerous or noteworthy targets.
