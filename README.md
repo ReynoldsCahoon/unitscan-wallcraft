@@ -35,7 +35,7 @@ Unitscan uses the [TargetByName](https://wowpedia.fandom.com/wiki/API_TargetByNa
 **/unitscan name** *adds/removes **name** to/from the active scan targets*    
 **/unitscantarget** *targets the most recently found target*    
 
-## Reccomended additional addons
+## Recommended addons
 To see target abilities in the tooltip please see [codex](https://github.com/nakda/codex/tree/main).
 
 ## Updating Zone Targets
