@@ -442,6 +442,7 @@ function unitscan_zone_targets()
         t["Ironeye the Invincible"] = true
         t["Silithid Ravager"] = true
         t["Steelsnap"] = true
+        t["Rok'Alim the Pounder"] = true
         t["Vile Sting"] = true
 
     elseif zone == "Thunder Bluff" then
