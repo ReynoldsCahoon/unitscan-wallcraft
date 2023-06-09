@@ -67,11 +67,8 @@ function unitscan_zone_targets()
         t["Zaricotl"] = true
 
     elseif zone == "Blackrock Depths" then
-        t["Lord Roccor"] = true
         t["Panzor the Invincible"] = true
         t["Pyromancer Loregrain"] = true
-        t["Verek"] = true
-        t["Warder Stilgiss"] = true
 
     elseif zone == "Blackrock Spire" then
         t["Bannok Grimaxe"] = true
