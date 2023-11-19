@@ -300,6 +300,7 @@ function unitscan_zone_targets()
         t["Rex Ashil"] = true
         t["Setis"] = true
         t["Twilight Lord Everun"] = true
+	t["Twilight Prophet"] = true
         t["Zora"] = true
 
     elseif zone == "Silverpine Forest" then
