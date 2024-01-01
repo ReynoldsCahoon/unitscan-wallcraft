@@ -508,6 +508,7 @@ function unitscan_zone_targets()
 
     elseif zone == "Winterspring" then
         t["Azurous"] = true
+        t["Barkskin Fisher"] = true        
         t["Bone Witch"] = true
         t["General Colbatann"] = true
         t["Grizzle Snowpaw"] = true
