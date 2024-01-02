@@ -518,6 +518,9 @@ function unitscan_zone_targets()
         t["Rak'shiri"] = true
         t["Spirit of the Damned"] = true
 
+    elseif zone == "Winter Veil Vale" then
+        t["Snowball"] = true        
+
     elseif zone == "Zul'Farrak" then
         t["Dustwraith"] = true
         t["Sandarr Dunereaver"] = true
