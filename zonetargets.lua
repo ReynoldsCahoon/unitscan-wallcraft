@@ -67,10 +67,14 @@ function unitscan_zone_targets()
         t["War Golem"] = true
         t["Zaricotl"] = true
         t["The Tombkeeper"] = true
+        t["Digmaster Shovelphlange"] = true
 
     elseif zone == "Blackrock Depths" then
         t["Panzor the Invincible"] = true
         t["Pyromancer Loregrain"] = true
+
+    elseif zone == "Blackrock Mountain" then
+        t["The Behemoth"] = true
 
     elseif zone == "Blackrock Spire" then
         t["Bannok Grimaxe"] = true
@@ -124,6 +128,9 @@ function unitscan_zone_targets()
         t["Strider Clutchmother"] = true
         t["Ancient Guardian"] = true
 
+    elseif zone == "Deadwind Pass" then
+        t["Duke Ragereaver"] = true
+
     elseif zone == "Desolace" then
         t["Accursed Slitherblade"] = true
         t["Cursed Centaur"] = true
@@ -137,6 +144,11 @@ function unitscan_zone_targets()
         t["Staggon"] = true
         t["Tepolar"] = true
         t["Grok Painweaver"] = true
+
+    elseif zone == "Dire Maul" then
+        t["Mushgog"] = true
+        t["Skarr the Unbreakable"] = true
+        t["The Razza"] = true
 
     elseif zone == "Dun Morogh" then
         t["Ben"] = true
@@ -402,6 +414,8 @@ function unitscan_zone_targets()
 
     elseif zone == "Temple of Atal'Hakkar" then
         t["Veyzhak the Cannibal"] = true
+        t["Zekkis"] = true
+        t["Jade"] = true
 
     elseif zone == "The Barrens" then
         t["Aean Swiftriver"] = true
@@ -438,9 +452,13 @@ function unitscan_zone_targets()
         t["Thunderstomp"] = true
         t["Zebrian the Mad"] = true
         t["Kolkar Observer"] = true
+        t["Trigore the Lasher"] = true
 
     elseif zone == "The Deadmines" then
         t["Miner Johnson"] = true
+        t["Capo the Mean"] = true
+        t["Marisa du'Paige"] = true
+        t["Brainwashed Noble"] = true
 
     elseif zone == "The Hinterlands" then
         t["Grimungous"] = true
@@ -491,6 +509,9 @@ function unitscan_zone_targets()
         t["Tormented Spirit"] = true
         t["The Zealot"] = true
 
+    elseif zone == "Uldaman" then
+        t["Digmaster Shovelphlange"] = true
+
     elseif zone == "Un'Goro Crater" then
         t["Baron Charr"] = true
         t["Clutchmother Zavas"] = true
@@ -499,9 +520,10 @@ function unitscan_zone_targets()
         t["Ravasaur Matriarch"] = true
         t["Uhk'loc"] = true
 
-    elseif zone == "Wailing Caverns" then
+    elseif zone == "The Wailing Caverns" then
         t["Deviate Faerie Dragon"] = true
         t["Trigore the Lasher"] = true
+        t["Boahn"] = true
 
     elseif zone == "Western Plaguelands" then
         t["Fallen Hero"] = true
@@ -529,6 +551,7 @@ function unitscan_zone_targets()
         t["Sergeant Brashclaw"] = true
         t["Slark"] = true
         t["Vultros"] = true
+        t["Capo the Mean"] = true
 
     elseif zone == "Wetlands" then
         t["Dragonmaw Battlemaster"] = true
@@ -558,9 +581,6 @@ function unitscan_zone_targets()
         t["Dustwraith"] = true
         t["Sandarr Dunereaver"] = true
         t["Zerillis"] = true
-
-    elseif zone == "Deadwind Pass" then
-        t["Duke Ragereaver"] = true
 
     end
 end
