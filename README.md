@@ -1,12 +1,8 @@
-# unitscan_turtle    
-[Unitscan](https://github.com/shirsig/unitscan-vanilla) modified for [Turtle WoW](https://turtle-wow.org/).
+# unitscan_wallcraft
+[Unitscan](https://github.com/ReynoldsCahoon/unitscan-wallcraft) modified for [Wallcraft](https://www.wallcraft.org/).
 
 ## Description
-This fork extends [unitscan-vanilla](https://github.com/shirsig/unitscan-vanilla) by automatically managing active scan targets ([zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua)) when you enter a zone.
-
-The [zone targets](https://github.com/GryllsAddons/unitscan-turtle/blob/master/zonetargets.lua) includes all rare mobs in vanilla as a baseline.
-
-This addon has a focus on leveling and [hardcore](https://turtle-wow.org/#/hardcore-mode) which is reflected in the choice of zone targets.
+This fork extends [unitscan-turtle](https://github.com/GryllsAddons/unitscan-turtle) by adding Wallcraft specific rares and eventually adding addon communication to track rare spawn timers and provide announcements.
 
 You can add custom targets to find players or targets not included in the zone targets list by using the command /unitscan *name*.
 
@@ -24,7 +20,7 @@ Targets added by the /unitscan command will be removed from active scan targets 
 
 You can move the unitscan frame by holding ctrl and dragging.
  
-**Please note unitscan-turtle will not auto target the target when it is found.**    
+**Please note unitscan-wallcraft will not auto target the target when it is found.**    
 **Click the target in the unitscan window or use the macro /unitscantarget to target the mob.**
 
 ## Addon Compatibility
@@ -39,4 +35,4 @@ Unitscan uses the [TargetByName](https://wowpedia.fandom.com/wiki/API_TargetByNa
 To see target abilities in the tooltip please see [codex](https://github.com/nakda/codex/tree/main).
 
 ## Updating Zone Targets
-The target list was pulled from classic however please [create an issue](https://github.com/GryllsAddons/unitscan-turtle/issues) for adding any missing custom Turtle WoW targets or any other dangerous or noteworthy targets.
+The target list was pulled from classic however please [create an issue](https://github.com/ReynoldsCahoon/unitscan-wallcraft/issues) for adding any missing custom Wallcraft targets.
