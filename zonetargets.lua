@@ -418,7 +418,6 @@ function unitscan_zone_targets()
         t["Jade"] = true
 
     elseif zone == "The Barrens" then
-        t["Aean Swiftriver"] = true
         t["Ambassador Bloodrage"] = true
         t["Azzere the Skyblade"] = true
         t["Boahn"] = true
@@ -433,11 +432,9 @@ function unitscan_zone_targets()
         t["Geopriest Gukk'rok"] = true
         t["Gesharahan"] = true
         t["Hagg Taurenbane"] = true
-        t["Hannah Bladeleaf"] = true
         t["Heggin Stonewhisker"] = true
         t["Humar the Pridelord"] = true
         t["Malgin Barleybrew"] = true
-        t["Marcus Bel"] = true
         t["Rathorian"] = true
         t["Rocklance"] = true
         t["Silithid Harvester"] = true
@@ -448,7 +445,6 @@ function unitscan_zone_targets()
         t["Swiftmane"] = true
         t["Swinegart Spearhide"] = true
         t["Takk the Leaper"] = true
-        t["Thora Feathermoon"] = true
         t["Thunderstomp"] = true
         t["Zebrian the Mad"] = true
         t["Kolkar Observer"] = true
