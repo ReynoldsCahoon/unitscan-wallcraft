@@ -446,7 +446,6 @@ function unitscan_zone_targets()
         t["Swinegart Spearhide"] = true
         t["Takk the Leaper"] = true
         t["Thunderstomp"] = true
-        t["Zebrian the Mad"] = true
         t["Kolkar Observer"] = true
         t["Trigore the Lasher"] = true
 
