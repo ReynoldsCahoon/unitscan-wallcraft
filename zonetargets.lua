@@ -1,581 +1,622 @@
+rareDb = {
+    ["Alterac Mountains"] = {
+        ["Araga"] = {
+            -- ["reynolds"] = {1 = 1706618285}, -- reynolds sees it alive
+            -- ["wooshie"] = {2 = 1706618290}, -- wooshie kills it
+            -- ["stoneharry"] = {0 = 1706618295}, -- stoneharry finds it dead
+        },
+        ["Cranky Benj"] = {},
+        ["Gravis Slipknot"] = {},
+        ["Jimmy the Bleeder"] = {},
+        ["Lo'Grosh"] = {},
+        ["Skhowl"] = {},
+        ["Stone Fury"] = {},
+        ["Narillasanz"] = {},
+    },
+    ["Arathi Highlands"] = {
+        ["Foulbelly"] = {},
+        ["Geomancer Flintdagger"] = {},
+        ["Kovork"] = {},
+        ["Molok the Crusher"] = {},
+        ["Montrose"] = {},
+        ["Nimar the Slayer"] = {},
+        ["Prince Nazjak"] = {},
+        ["Ruul Onestone"] = {},
+        ["Singer"] = {},
+        ["Zalas Witherbark"] = {},
+    },
+    ["Ashenvale"] = {
+        ["Akkrilus"] = {},
+        ["Apothecary Falthis"] = {},
+        ["Branch Snapper"] = {},
+        ["Eck'alom"] = {},
+        ["Lady Vespia"] = {},
+        ["Mist Howler"] = {},
+        ["Mugglefin"] = {},
+        ["Oakpaw"] = {},
+        ["Prince Raze"] = {},
+        ["Rorgish Jowl"] = {},
+        ["Terrowulf Packlord"] = {},
+        ["Ursol'lok"] = {},
+        ["Wandering Protector"] = {},
+        ["Wrathtail Tide Princess"] = {},
+    },
+    ["Azshara"] = {
+        ["Antilos"] = {},
+        ["Bone Witch"] = {},
+        ["Gatekeeper Rageroar"] = {},
+        ["General Fangferror"] = {},
+        ["Lady Sesspira"] = {},
+        ["Magister Hawkhelm"] = {},
+        ["Master Feardred"] = {},
+        ["Monnos the Elder"] = {},
+        ["Scalebeard"] = {},
+        ["Spirit of the Damned"] = {},
+        ["The Evalcharr"] = {},
+        ["Varo'then's Ghost"] = {},
+    },
+    ["Badlands"] = {
+        ["7:XT"] = {},
+        ["Anathemus"] = {},
+        ["Broken Tooth"] = {},
+        ["Rumbler"] = {},
+        ["Shadowforge Commander"] = {},
+        ["Siege Golem"] = {},
+        ["War Golem"] = {},
+        ["Zaricotl"] = {},
+        ["The Tombkeeper"] = {},
+        ["Digmaster Shovelphlange"] = {},
+    },
+    ["Blackrock Depths"] = {
+        ["Panzor the Invincible"] = {},
+        ["Pyromancer Loregrain"] = {},
+    },
+    ["Blackrock Mountain"] = {
+        ["The Behemoth"] = {},
+    },
+    ["Blackrock Spire"] = {
+        ["Bannok Grimaxe"] = {},
+        ["Burning Felguard"] = {},
+        ["Crystal Fang"] = {},
+        ["Ghok Bashguud"] = {},
+        ["Jed Runewatcher"] = {},
+        ["Quartermaster Zigris"] = {},
+        ["Spirestone Battle Lord"] = {},
+        ["Spirestone Butcher"] = {},
+        ["Spirestone Lord Magus"] = {},
+        ["Urok Doomhowl"] = {},
+    },
+    ["Blasted Lands"] = {
+        ["Akubar the Seer"] = {},
+        ["Clack the Reaver"] = {},
+        ["Deatheye"] = {},
+        ["Dreadscorn"] = {},
+        ["Grunter"] = {},
+        ["Magronos the Unyielding"] = {},
+        ["Mojo the Twisted"] = {},
+        ["Ravage"] = {},
+        ["Spiteflayer"] = {},
+        ["Bone Witch"] = {},
+        ["Spirit of the Damned"] = {},
+        ["Hellion"] = {},
+    },
+    ["Burning Steppes"] = {
+        ["Bone Witch"] = {},
+        ["Deathmaw"] = {},
+        ["Gorgon'och"] = {},
+        ["Gruklash"] = {},
+        ["Hahk'Zor"] = {},
+        ["Hematos"] = {},
+        ["Malfunctioning Reaver"] = {},
+        ["Spirit of the Damned"] = {},
+        ["Terrorspark"] = {},
+        ["Thauris Balgarr"] = {},
+        ["Volchan"] = {},
+        ["Battlecaller Ror"] = {},
+    },
+    ["Darkshore"] = {
+        ["Carnivous the Breaker"] = {},
+        ["Firecaller Radison"] = {},
+        ["Flagglemurk the Cruel"] = {},
+        ["Lady Moongazer"] = {},
+        ["Lady Vespira"] = {},
+        ["Licillin"] = {},
+        ["Lord Sinslayer"] = {},
+        ["Shadowclaw"] = {},
+        ["Strider Clutchmother"] = {},
+        ["Ancient Guardian"] = {},
+    },
+    ["Deadwind Pass"] = {
+        ["Duke Ragereaver"] = {},
+    },
+    ["Desolace"] = {
+        ["Accursed Slitherblade"] = {},
+        ["Cursed Centaur"] = {},
+        ["Giggler"] = {},
+        ["Hissperak"] = {},
+        ["Kaskk"] = {},
+        ["Prince Kellen"] = {},
+        ["Dreadwhisper"] = {},
+        ["Wep"] = {},
+        ["Yor"] = {},
+        ["Staggon"] = {},
+        ["Tepolar"] = {},
+        ["Grok Painweaver"] = {},
+    },
+    ["Dire Maul"] = {
+        ["Mushgog"] = {},
+        ["Skarr the Unbreakable"] = {},
+        ["The Razza"] = {},
+    },
+    ["Dun Morogh"] = {
+        ["Ben"] = {},
+        ["Bjarn"] = {},
+        ["Edan the Howler"] = {},
+        ["Gibblewilt"] = {},
+        ["Great Father Arctikus"] = {},
+        ["Hammerspine"] = {},
+        ["Timber"] = {},
+    },
+    ["Durotar"] = {
+        ["Captain Flat Tusk"] = {},
+        ["Death Flayer"] = {},
+        ["Felweaver Scornn"] = {},
+        ["Geolord Mottle"] = {},
+        ["Warlord Kolkanis"] = {},
+        ["Watch Commander Zalaphil"] = {},
+    },
+    ["Duskwood"] = {
+        ["Lord Malathrom"] = {},
+        ["Lupos"] = {},
+        ["Lurking Shadow"] = {},
+        ["Mor'Ladim"] = {},
+        ["Naraxis"] = {},
+        ["Nefaru"] = {},
+        ["Stitches"] = {},
+        ["Kern the Enforcer"] = {},
+        ["Defias Lookout"] = {},
+        ["Suffering"] = {},
+        ["Tilloa"] = {},
+        ["Vladimir"] = {},
+    },
+    ["Dustwallow Marsh"] = {
+        ["Brimgore"] = {},
+        ["Burgle Eye"] = {},
+        ["Coral Shark"] = {},
+        ["Darkmist Widow"] = {},
+        ["Dart"] = {},
+        ["Drogoth the Roamer"] = {},
+        ["Hayoc"] = {},
+        ["Lord Angler"] = {},
+        ["Oozeworm"] = {},
+        ["Ripscale"] = {},
+        ["The Rot"] = {},
+    },
+    ["Eastern Plaguelands"] = {
+        ["Bone Witch"] = {},
+        ["Deathspeaker Selendre"] = {},
+        ["Duggan Wildhammer"] = {},
+        ["Gish the Unmoving"] = {},
+        ["Hed'mush the Rotting"] = {},
+        ["High General Abbendis"] = {},
+        ["Lord Darkscythe"] = {},
+        ["Ranger Lord Hawkspear"] = {},
+        ["Spirit of the Damned"] = {},
+        ["Warlord Thresh'jin"] = {},
+        ["Zul'Brin Warpbranch"] = {},
+        ["Deathcaller Majestis"] = {},
+        ["Ushalac the Gloomdweller"] = {},
+        ["Gash'nak the Cannibal"] = {},
+    },
+    ["Elwynn Forest"] = {
+        ["Fedfennel"] = {},
+        ["Gruff Swiftbite"] = {},
+        ["Morgaine the Sly"] = {},
+        ["Mother Fang"] = {},
+        ["Narg the Taskmaster"] = {},
+        ["Thuros Lightfingers"] = {},
+    },
+    ["Felwood"] = {
+        ["Alshirr Banebreath"] = {},
+        ["Death Howl"] = {},
+        ["Dessecus"] = {},
+        ["Immolatus"] = {},
+        ["Mongress"] = {},
+        ["Olm the Wise"] = {},
+        ["Ragepaw"] = {},
+        ["The Ongar"] = {},
+    },
+    ["Feralas"] = {
+        ["Antilus the Soarer"] = {},
+        ["Arash-ethis"] = {},
+        ["Bloodroar the Stalker"] = {},
+        ["Diamond Head"] = {},
+        ["Gnarl Leafbrother"] = {},
+        ["Grug'thok the Seer"] = {},
+        ["Lady Szallah"] = {},
+        ["Mushgog"] = {},
+        ["Old Grizzlegut"] = {},
+        ["Qirot"] = {},
+        ["Skarr the Unbreakable"] = {},
+        ["Snarler"] = {},
+        ["The Razza"] = {},
+        ["Dreamwatcher Forktongue"] = {},
+    },
+    ["Gnomeregan"] = {
+        ["Dark Iron Ambassador"] = {},
+    },
+    ["Hillsbrad Foothills"] = {
+        ["Big Samras"] = {},
+        ["Creepthess"] = {},
+        ["Lady Zephris"] = {},
+        ["Narillasanz"] = {},
+        ["Ro'Bark"] = {},
+        ["Scargil"] = {},
+        ["Tamra Stormpike"] = {},
+        ["Tamara Stormpike"] = {},
+    },
+    ["Ironforge"] = {
+        ["Spectral Stalker"] = {},
+    },
+    ["Loch Modan"] = {
+        ["Boss Galgosh"] = {},
+        ["Digmaster Shovelphlange"] = {},
+        ["Emogg the Crusher"] = {},
+        ["Gradok"] = {},
+        ["Grizlak"] = {},
+        ["Haren Swifthoof"] = {},
+        ["Large Loch Crocolisk"] = {},
+        ["Lord Condar"] = {},
+        ["Magosh"] = {},
+        ["Ol' Sooty"] = {},
+        ["Shanda the Spinner"] = {},
+        ["Thragomm"] = {},
+    },
+    ["Maraudon"] = {
+        ["Meshlok the Harvester"] = {},
+    },
+    ["Mulgore"] = {
+        ["Enforcer Emilgund"] = {},
+        ["Ghost Howl"] = {},
+        ["Mazzranache"] = {},
+        ["Sister Hatelash"] = {},
+        ["Snagglespear"] = {},
+        ["The Rake"] = {},
+    },
+    ["Razorfen Kraul"] = {
+        ["Blind Hunter"] = {},
+        ["Earthcaller Halmgar"] = {},
+        ["Razorfen Spearhide"] = {},
+    },
+    ["Razorfen Downs"] = {
+        ["Kelemis the Lifeless"] = {}, 
+    },
+    ["Redridge Mountains"] = {
+        ["Boulderheart"] = {},
+        ["Chatter"] = {},
+        ["Kazon"] = {},
+        ["Lurking Shadow"] = {},
+        ["Ribchaser"] = {},
+        ["Rohh the Silent"] = {},
+        ["Seeker Aqualon"] = {},
+        ["Snarlflare"] = {},
+        ["Squiddic"] = {},
+        ["Volchan"] = {},
+    },
+    ["Scarlet Monastery"] = {
+        ["Azshir the Sleepless"] = {},
+        ["Fallen Champion"] = {},
+        ["Ironspine"] = {},
+    },
+    ["Searing Gorge"] = {
+        ["Faulty War Golem"] = {},
+        ["Highlord Mastrogonde"] = {},
+        ["Rekk'tilac"] = {},
+        ["Scald"] = {},
+        ["Shleipnarr"] = {},
+        ["Slave Master Blackheart"] = {},
+        ["Smoldar"] = {},
+        ["The Behemoth"] = {},
+        ["Dark Iron Enforcer"] = {},
+    },
+    ["Shadowfang Keep"] = {        
+        ["Deathsworn Captain"] = {},
+    },
+    ["Silithus"] = {
+        ["Gretheer"] = {},
+        ["Grubthor"] = {},
+        ["Huricanian"] = {},
+        ["Krellack"] = {},
+        ["Lapress"] = {},
+        ["Rex Ashil"] = {},
+        ["Setis"] = {},
+        ["Twilight Lord Everun"] = {},
+        ["Zora"] = {},
+        ["Spawn of Ouro"] = {},
+    },
+    ["Silverpine Forest"] = {
+        ["Dalaran Spellscribe"] = {},
+        ["Gorefang"] = {},
+        ["Krethis Shadowspinner"] = {},
+        ["Old Vicejaw"] = {},
+        ["Ravenclaw Regent"] = {},
+        ["Rot Hide Bruiser"] = {},
+        ["Snarlmane"] = {},
+        ["Son of Arugal"] = {},
+    },
+    ["Stonetalon Mountains"] = {
+        ["Brother Ravenoak"] = {},
+        ["Foreman Rigger"] = {},
+        ["Nal'taszar"] = {},
+        ["Pridewing Patriarch"] = {},
+        ["Sentinel Amarassan"] = {},
+        ["Sister Riven"] = {},
+        ["Sorrow Wing"] = {},
+        ["Taskmaster Whipfang"] = {},
+        ["Vengeful Ancient"] = {},
+    },
+    ["Stormwind City"] = {
+        ["Sewer Beast"] = {},
+    },
+    ["Stranglethorn Vale"] = {
+        ["Gluggle"] = {},
+        ["Kurmokk"] = {},
+        ["Lord Sakrasis"] = {},
+        ["Mosh'Ogg Butcher"] = {},
+        ["Rippa"] = {},
+        ["Roloch"] = {},
+        ["Scale Belly"] = {},
+        ["Scarshield Quartermaster"] = {},
+        ["Verifonix"] = {},
+    },
+    ["Stratholme"] = {
+        ["Hearthsinger Forresten"] = {},
+        ["Skul"] = {},
+        ["Stonespine"] = {},
+        ["Timmy the Cruel"] = {},
+    },
+    ["Swamp of Sorrows"] = {
+        ["Fingat"] = {},
+        ["Gilmorian"] = {},
+        ["Jade"] = {},
+        ["Lord Captain Wyrmak"] = {},
+        ["Lost One Chieftain"] = {},
+        ["Lost One Cook"] = {},
+        ["Molt Thorn"] = {},
+        ["Zekkis"] = {},
+    },
+    ["Tanaris"] = {
+        ["Bone Witch"] = {},
+        ["Cyclok the Mad"] = {},
+        ["Greater Firebird"] = {},
+        ["Haarka the Ravenous"] = {},
+        ["Jin'Zallah the Sandbringer"] = {},
+        ["Kregg Keelhaul"] = {},
+        ["Murderous Blisterpaw"] = {},
+        ["Omgorn the Lost"] = {},
+        ["Soriid the Devourer"] = {},
+        ["Spirit of the Damned"] = {},
+        ["Warleader Krazzilak"] = {},
+        ["Soul of Tanaris"] = {},
+    },
+    ["Teldrassil"] = {
+        ["Blackmoss the Fetid"] = {},
+        ["Duskstalker"] = {},
+        ["Fury Shelda"] = {},
+        ["Grimmaw"] = {},
+        ["Threggil"] = {},
+        ["Uruson"] = {},
+    },
+    ["Temple of Atal'Hakkar"] = {
+        ["Veyzhak the Cannibal"] = {},
+        ["Zekkis"] = {},
+        ["Jade"] = {},
+    },
+    ["The Barrens"] = {
+        ["Ambassador Bloodrage"] = {},
+        ["Azzere the Skyblade"] = {},
+        ["Boahn"] = {},
+        ["Brokespear"] = {},
+        ["Brontus"] = {},
+        ["Captain Gerogg Hammertoe"] = {},
+        ["Digger Flameforge"] = {},
+        ["Dishu"] = {},
+        ["Elder Mystic Razorsnout"] = {},
+        ["Engineer Whirleygig"] = {},
+        ["Foreman Grills"] = {},
+        ["Geopriest Gukk'rok"] = {},
+        ["Gesharahan"] = {},
+        ["Hagg Taurenbane"] = {},
+        ["Heggin Stonewhisker"] = {},
+        ["Humar the Pridelord"] = {},
+        ["Malgin Barleybrew"] = {},
+        ["Rathorian"] = {},
+        ["Rocklance"] = {},
+        ["Silithid Harvester"] = {},
+        ["Sister Rathtalon"] = {},
+        ["Sludge Beast"] = {},
+        ["Snort the Heckler"] = {},
+        ["Stonearm"] = {},
+        ["Swiftmane"] = {},
+        ["Swinegart Spearhide"] = {},
+        ["Takk the Leaper"] = {},
+        ["Thunderstomp"] = {},
+        ["Kolkar Observer"] = {},
+        ["Trigore the Lasher"] = {},
+    },
+    ["The Deadmines"] = {
+        ["Miner Johnson"] = {},
+        ["Capo the Mean"] = {},
+        ["Marisa du'Paige"] = {},
+        ["Brainwashed Noble"] = {},
+    },
+    ["The Hinterlands"] = {
+        ["Grimungous"] = {},
+        ["Ironback"] = {},
+        ["Jalinde Summerdrake"] = {},
+        ["Mith'rethis the Enchanter"] = {},
+        ["Old Cliff Jumper"] = {},
+        ["Razortalon"] = {},
+        ["Retherokk the Berserker"] = {},
+        ["The Reak"] = {},
+        ["Witherheart the Stalker"] = {},
+        ["Zul'arek Hatefowler"] = {},
+        ["Death Knight Soulbearer"] = {},
+        ["Wildhammer Ambassador"] = {},
+        ["Jin'ari"] = {},
+    },
+    ["The Stockade"] = {
+        ["Bruegal Ironknuckle"] = {},
+    },
+    ["The Temple of Atal'Hakkar"] = {
+        ["Veyzhak the Cannibal"] = {},
+    },
+    ["Thousand Needles"] = {
+        ["Achellios the Banished"] = {},
+        ["Gibblesnik"] = {},
+        ["Harb Foulmountain"] = {},
+        ["Heartrazor"] = {},
+        ["Ironeye the Invincible"] = {},
+        ["Silithid Ravager"] = {},
+        ["Steelsnap"] = {},
+        ["Rok'Alim the Pounder"] = {},
+        ["Vile Sting"] = {},
+        ["Scillia Daggerquil"] = {},
+    },
+    ["Thunder Bluff"] = {
+        ["Ghost Howl"] = {},
+    },
+    ["Tirisfal Glades"] = {
+        ["Bayne"] = {},
+        ["Deeb"] = {},
+        ["Fallen Hero"] = {},
+        ["Farmer Solliden"] = {},
+        ["Fellicent's Shade"] = {},
+        ["Lost Soul"] = {},
+        ["Muad"] = {},
+        ["Ressan the Needler"] = {},
+        ["Sri'skulk"] = {},
+        ["Tormented Spirit"] = {},
+        ["The Zealot"] = {},
+    },
+    ["Uldaman"] = {
+        ["Digmaster Shovelphlange"] = {},
+    },
+    ["Un'Goro Crater"] = {
+        ["Baron Charr"] = {},
+        ["Clutchmother Zavas"] = {},
+        ["Gruff"] = {},
+        ["King Mosh"] = {},
+        ["Ravasaur Matriarch"] = {},
+        ["Uhk'loc"] = {},
+    },
+    ["The Wailing Caverns"] = {
+        ["Deviate Faerie Dragon"] = {},
+        ["Trigore the Lasher"] = {},
+        ["Boahn"] = {},
+    },
+    ["Western Plaguelands"] = {
+        ["Fallen Hero"] = {},
+        ["Foreman Jerris"] = {},
+        ["Foreman Marcrid"] = {},
+        ["Foulmane"] = {},
+        ["Lord Maldazzar"] = {},
+        ["Putridius"] = {},
+        ["Scarlet Executioner"] = {},
+        ["Scarlet High Clerist"] = {},
+        ["Scarlet Interrogator"] = {},
+        ["Scarlet Judge"] = {},
+        ["Scarlet Smith"] = {},
+        ["The Husk"] = {},
+        ["Felendor the Accuser"] = {},
+    },
+    ["Westfall"] = {
+        ["Brack"] = {},
+        ["Brainwashed Noble"] = {},
+        ["Carver Molsen"] = {},
+        ["Foe Reaper 4000"] = {},
+        ["Leprithus"] = {},
+        ["Marisa du'Paige"] = {},
+        ["Master Digger"] = {},
+        ["Sergeant Brashclaw"] = {},
+        ["Slark"] = {},
+        ["Vultros"] = {},
+        ["Capo the Mean"] = {},
+    },
+    ["Wetlands"] = {
+        ["Dragonmaw Battlemaster"] = {},
+        ["Garneg Charskull"] = {},
+        ["Gnawbone"] = {},
+        ["Leech Widow"] = {},
+        ["Ma'ruk Wyrmscale"] = {},
+        ["Mirelow"] = {},
+        ["Razormaw Matriarch"] = {},
+        ["Sludginn"] = {},
+        ["Brundar"] = {},
+    },
+    ["Winterspring"] = {
+        ["Azurous"] = {},
+        ["Bone Witch"] = {},
+        ["General Colbatann"] = {},
+        ["Grizzle Snowpaw"] = {},
+        ["Kashoch the Reaver"] = {},
+        ["Lady Hederine"] = {},
+        ["Mezzir the Howler"] = {},
+        ["Rak'shiri"] = {},
+        ["Spirit of the Damned"] = {},
+        ["Berylgos"] = {},
+        ["Tatterhide"] = {},
+    },
+    ["Zul'Farrak"] = {
+        ["Dustwraith"] = {},
+        ["Sandarr Dunereaver"] = {},
+        ["Zerillis"] = {},
+    },
+}
+
 function unitscan_zone_targets()
-	local zone = GetZoneText()
-	if not zone then return end
+    local zone = GetZoneText()
+    if not zone then return end
 
-    unitscan_zonetargets = {} -- reset zonetargets
-    local t = unitscan_zonetargets
-    
-	if zone == "Alterac Mountains" then
-		t["Araga"] = true
-        t["Cranky Benj"] = true
-        t["Gravis Slipknot"] = true
-        t["Jimmy the Bleeder"] = true
-        t["Lo'Grosh"] = true
-        t["Skhowl"] = true
-        t["Stone Fury"] = true
-        t["Narillasanz"] = true
+    if rareDb[zone] then
+        unitscan_zonetargets = rareDb[zone]
+    else
+        unitscan_zonetargets = {} -- reset zonetargets
+    end
+end
 
-    elseif zone == "Arathi Highlands" then
-        t["Foulbelly"] = true
-        t["Geomancer Flintdagger"] = true
-        t["Kovork"] = true
-        t["Molok the Crusher"] = true
-        t["Montrose"] = true
-        t["Nimar the Slayer"] = true
-        t["Prince Nazjak"] = true
-        t["Ruul Onestone"] = true
-        t["Singer"] = true
-        t["Zalas Witherbark"] = true
+function unitscan_add_time(zone, name, state)
+    local currentUTCTime = time(date("!*t"))
+    local codes = {
+        [0] = "dead",
+        [1] = "alive",
+        [2] = "killed",
+    }
+    entry = {state = currentUTCTime}
 
-    elseif zone == "Ashenvale" then
-        t["Akkrilus"] = true
-        t["Apothecary Falthis"] = true
-        t["Branch Snapper"] = true
-        t["Eck'alom"] = true
-        t["Lady Vespia"] = true
-        t["Mist Howler"] = true
-        t["Mugglefin"] = true
-        t["Oakpaw"] = true
-        t["Prince Raze"] = true
-        t["Rorgish Jowl"] = true
-        t["Terrowulf Packlord"] = true
-        t["Ursol'lok"] = true
-        t["Wandering Protector"] = true
-        t["Wrathtail Tide Princess"] = true
+    if rareDb[zone][name] then
+        -- add reference table for player if none exists
+        if not rareDb[zone][name][UnitName("player")] then
+            rareDb[zone][name][UnitName("player")] = {}
+        end
 
-    elseif zone == "Azshara" then
-        t["Antilos"] = true
-        t["Bone Witch"] = true
-        t["Gatekeeper Rageroar"] = true
-        t["General Fangferror"] = true
-        t["Lady Sesspira"] = true
-        t["Magister Hawkhelm"] = true
-        t["Master Feardred"] = true
-        t["Monnos the Elder"] = true
-        t["Scalebeard"] = true
-        t["Spirit of the Damned"] = true
-        t["The Evalcharr"] = true
-        t["Varo'then's Ghost"] = true
+        -- if found alive or killed (not dead) clear previous dead entry
+        if not state == 0 then
+            rareDb[zone][name][UnitName("player")][state] = currentUTCTime
+            table.remove(rareDb[zone][name][UnitName("player")], 0)
+        else
+            -- if found dead keep oldest entry
+            if not rareDb[zone][name][UnitName("player")][0] then
+                rareDb[zone][name][UnitName("player")][state] = currentUTCTime
+            end
+            -- wipe previous alive entry
+            table.remove(rareDb[zone][name][UnitName("player")], 1)
+        end
+        for player, entries in pairs(rareDb[zone][name]) do
+            for state, timestamp in pairs(entries) do
 
-    elseif zone == "Badlands" then
-        t["7:XT"] = true
-        t["Anathemus"] = true
-        t["Broken Tooth"] = true
-        t["Rumbler"] = true
-        t["Shadowforge Commander"] = true
-        t["Siege Golem"] = true
-        t["War Golem"] = true
-        t["Zaricotl"] = true
-        t["The Tombkeeper"] = true
-        t["Digmaster Shovelphlange"] = true
-
-    elseif zone == "Blackrock Depths" then
-        t["Panzor the Invincible"] = true
-        t["Pyromancer Loregrain"] = true
-
-    elseif zone == "Blackrock Mountain" then
-        t["The Behemoth"] = true
-
-    elseif zone == "Blackrock Spire" then
-        t["Bannok Grimaxe"] = true
-        t["Burning Felguard"] = true
-        t["Crystal Fang"] = true
-        t["Ghok Bashguud"] = true
-        t["Jed Runewatcher"] = true
-        t["Quartermaster Zigris"] = true
-        t["Spirestone Battle Lord"] = true
-        t["Spirestone Butcher"] = true
-        t["Spirestone Lord Magus"] = true
-        t["Urok Doomhowl"] = true
-
-    elseif zone == "Blasted Lands" then
-        t["Akubar the Seer"] = true
-        t["Clack the Reaver"] = true
-        t["Deatheye"] = true
-        t["Dreadscorn"] = true
-        t["Grunter"] = true
-        t["Magronos the Unyielding"] = true
-        t["Mojo the Twisted"] = true
-        t["Ravage"] = true
-        t["Spiteflayer"] = true
-        t["Bone Witch"] = true
-        t["Spirit of the Damned"] = true
-        t["Hellion"] = true
-
-    elseif zone == "Burning Steppes" then
-        t["Bone Witch"] = true
-        t["Deathmaw"] = true
-        t["Gorgon'och"] = true
-        t["Gruklash"] = true
-        t["Hahk'Zor"] = true
-        t["Hematos"] = true
-        t["Malfunctioning Reaver"] = true
-        t["Spirit of the Damned"] = true
-        t["Terrorspark"] = true
-        t["Thauris Balgarr"] = true
-        t["Volchan"] = true
-        t["Battlecaller Ror"] = true
-
-    elseif zone == "Darkshore" then
-        t["Carnivous the Breaker"] = true
-        t["Firecaller Radison"] = true
-        t["Flagglemurk the Cruel"] = true
-        t["Lady Moongazer"] = true
-        t["Lady Vespira"] = true
-        t["Licillin"] = true
-        t["Lord Sinslayer"] = true
-        t["Shadowclaw"] = true
-        t["Strider Clutchmother"] = true
-        t["Ancient Guardian"] = true
-
-    elseif zone == "Deadwind Pass" then
-        t["Duke Ragereaver"] = true
-
-    elseif zone == "Desolace" then
-        t["Accursed Slitherblade"] = true
-        t["Cursed Centaur"] = true
-        t["Giggler"] = true
-        t["Hissperak"] = true
-        t["Kaskk"] = true
-        t["Prince Kellen"] = true
-        t["Dreadwhisper"] = true
-        t["Wep"] = true
-        t["Yor"] = true
-        t["Staggon"] = true
-        t["Tepolar"] = true
-        t["Grok Painweaver"] = true
-
-    elseif zone == "Dire Maul" then
-        t["Mushgog"] = true
-        t["Skarr the Unbreakable"] = true
-        t["The Razza"] = true
-
-    elseif zone == "Dun Morogh" then
-        t["Ben"] = true
-        t["Bjarn"] = true
-        t["Edan the Howler"] = true
-        t["Gibblewilt"] = true
-        t["Great Father Arctikus"] = true
-        t["Hammerspine"] = true
-        t["Timber"] = true
-
-    elseif zone == "Durotar" then
-        t["Captain Flat Tusk"] = true
-        t["Death Flayer"] = true
-        t["Felweaver Scornn"] = true
-        t["Geolord Mottle"] = true
-        t["Warlord Kolkanis"] = true
-        t["Watch Commander Zalaphil"] = true
-
-    elseif zone == "Duskwood" then
-        t["Lord Malathrom"] = true
-        t["Lupos"] = true
-        t["Lurking Shadow"] = true
-        t["Mor'Ladim"] = true
-        t["Naraxis"] = true
-        t["Nefaru"] = true
-        t["Stitches"] = true
-        t["Kern the Enforcer"] = true
-        t["Defias Lookout"] = true
-        t["Suffering"] = true
-        t["Tilloa"] = true
-        t["Vladimir"] = true
-
-    elseif zone == "Dustwallow Marsh" then
-        t["Brimgore"] = true
-        t["Burgle Eye"] = true
-        t["Coral Shark"] = true
-        t["Darkmist Widow"] = true
-        t["Dart"] = true
-        t["Drogoth the Roamer"] = true
-        t["Hayoc"] = true
-        t["Lord Angler"] = true
-        t["Oozeworm"] = true
-        t["Ripscale"] = true
-        t["The Rot"] = true
-        
-    elseif zone == "Eastern Plaguelands" then
-        t["Bone Witch"] = true
-        t["Deathspeaker Selendre"] = true
-        t["Duggan Wildhammer"] = true
-        t["Gish the Unmoving"] = true
-        t["Hed'mush the Rotting"] = true
-        t["High General Abbendis"] = true
-        t["Lord Darkscythe"] = true
-        t["Ranger Lord Hawkspear"] = true
-        t["Spirit of the Damned"] = true
-        t["Warlord Thresh'jin"] = true
-        t["Zul'Brin Warpbranch"] = true
-        t["Deathcaller Majestis"] = true
-        t["Ushalac the Gloomdweller"] = true
-        t["Gash'nak the Cannibal"] = true
-
-    elseif zone == "Elwynn Forest" then
-        t["Fedfennel"] = true
-        t["Gruff Swiftbite"] = true
-        t["Morgaine the Sly"] = true
-        t["Mother Fang"] = true
-        t["Narg the Taskmaster"] = true
-        t["Thuros Lightfingers"] = true
-
-    elseif zone == "Felwood" then
-        t["Alshirr Banebreath"] = true
-        t["Death Howl"] = true
-        t["Dessecus"] = true
-        t["Immolatus"] = true
-        t["Mongress"] = true
-        t["Olm the Wise"] = true
-        t["Ragepaw"] = true
-        t["The Ongar"] = true
-        
-    elseif zone == "Feralas" then
-        t["Antilus the Soarer"] = true
-        t["Arash-ethis"] = true
-        t["Bloodroar the Stalker"] = true
-        t["Diamond Head"] = true
-        t["Gnarl Leafbrother"] = true
-        t["Grug'thok the Seer"] = true
-        t["Lady Szallah"] = true
-        t["Mushgog"] = true
-        t["Old Grizzlegut"] = true
-        t["Qirot"] = true
-        t["Skarr the Unbreakable"] = true
-        t["Snarler"] = true
-        t["The Razza"] = true
-        t["Dreamwatcher Forktongue"] = true
-
-    elseif zone == "Gnomeregan" then
-        t["Dark Iron Ambassador"] = true
-
-    elseif zone == "Hillsbrad Foothills" then
-        t["Big Samras"] = true
-        t["Creepthess"] = true
-        t["Lady Zephris"] = true
-        t["Narillasanz"] = true
-        t["Ro'Bark"] = true
-        t["Scargil"] = true
-        t["Tamra Stormpike"] = true
-        t["Tamara Stormpike"] = true
-
-    elseif zone == "Ironforge" then
-        t["Spectral Stalker"] = true
-
-    elseif zone == "Loch Modan" then
-        t["Boss Galgosh"] = true
-        t["Digmaster Shovelphlange"] = true
-        t["Emogg the Crusher"] = true
-        t["Gradok"] = true
-        t["Grizlak"] = true
-        t["Haren Swifthoof"] = true
-        t["Large Loch Crocolisk"] = true
-        t["Lord Condar"] = true
-        t["Magosh"] = true
-        t["Ol' Sooty"] = true
-        t["Shanda the Spinner"] = true
-        t["Thragomm"] = true
-
-    elseif zone == "Maraudon" then
-        t["Meshlok the Harvester"] = true
-
-    elseif zone == "Mulgore" then
-        t["Enforcer Emilgund"] = true
-        t["Ghost Howl"] = true
-        t["Mazzranache"] = true
-        t["Sister Hatelash"] = true
-        t["Snagglespear"] = true
-        t["The Rake"] = true
-
-    elseif zone == "Orgrimmar" then
-        t["Spectral Stalker"] = true        
-
-    elseif zone == "Razorfen Kraul" then
-        t["Blind Hunter"] = true
-        t["Earthcaller Halmgar"] = true
-        t["Razorfen Spearhide"] = true
-
-    elseif zone == "Razorfen Downs" then
-        t["Kelemis the Lifeless"] = true 
-
-    elseif zone == "Redridge Mountains" then
-        t["Boulderheart"] = true
-        t["Chatter"] = true
-        t["Kazon"] = true
-        t["Lurking Shadow"] = true
-        t["Ribchaser"] = true
-        t["Rohh the Silent"] = true
-        t["Seeker Aqualon"] = true
-        t["Snarlflare"] = true
-        t["Squiddic"] = true
-        t["Volchan"] = true
-
-    elseif zone == "Scarlet Monastery" then
-        t["Azshir the Sleepless"] = true
-        t["Fallen Champion"] = true
-        t["Ironspine"] = true
-
-    elseif zone == "Searing Gorge" then
-        t["Faulty War Golem"] = true
-        t["Highlord Mastrogonde"] = true
-        t["Rekk'tilac"] = true
-        t["Scald"] = true
-        t["Shleipnarr"] = true
-        t["Slave Master Blackheart"] = true
-        t["Smoldar"] = true
-        t["The Behemoth"] = true
-        t["Dark Iron Enforcer"] = true
-
-    elseif zone == "Shadowfang Keep" then        
-        t["Deathsworn Captain"] = true
-
-    elseif zone == "Silithus" then
-        t["Gretheer"] = true
-        t["Grubthor"] = true
-        t["Huricanian"] = true
-        t["Krellack"] = true
-        t["Lapress"] = true
-        t["Rex Ashil"] = true
-        t["Setis"] = true
-        t["Twilight Lord Everun"] = true
-        t["Zora"] = true
-        t["Spawn of Ouro"] = true
-
-    elseif zone == "Silverpine Forest" then
-        t["Dalaran Spellscribe"] = true
-        t["Gorefang"] = true
-        t["Krethis Shadowspinner"] = true
-        t["Old Vicejaw"] = true
-        t["Ravenclaw Regent"] = true
-        t["Rot Hide Bruiser"] = true
-        t["Snarlmane"] = true
-        t["Son of Arugal"] = true
-
-    elseif zone == "Stonetalon Mountains" then
-        t["Brother Ravenoak"] = true
-        t["Foreman Rigger"] = true
-        t["Nal'taszar"] = true
-        t["Pridewing Patriarch"] = true
-        t["Sentinel Amarassan"] = true
-        t["Sister Riven"] = true
-        t["Sorrow Wing"] = true
-        t["Taskmaster Whipfang"] = true
-        t["Vengeful Ancient"] = true
-
-    elseif zone == "Stormwind City" then
-        t["Sewer Beast"] = true
-
-    elseif zone == "Stranglethorn Vale" then
-        t["Gluggle"] = true
-        t["Kurmokk"] = true
-        t["Lord Sakrasis"] = true
-        t["Mosh'Ogg Butcher"] = true
-        t["Rippa"] = true
-        t["Roloch"] = true
-        t["Scale Belly"] = true
-        t["Scarshield Quartermaster"] = true
-        t["Verifonix"] = true
-
-    elseif zone == "Stratholme" then
-        t["Hearthsinger Forresten"] = true
-        t["Skul"] = true
-        t["Stonespine"] = true
-        t["Timmy the Cruel"] = true
-
-    elseif zone == "Swamp of Sorrows" then
-        t["Fingat"] = true
-        t["Gilmorian"] = true
-        t["Jade"] = true
-        t["Lord Captain Wyrmak"] = true
-        t["Lost One Chieftain"] = true
-        t["Lost One Cook"] = true
-        t["Molt Thorn"] = true
-        t["Zekkis"] = true
-
-    elseif zone == "Tanaris" then
-        t["Bone Witch"] = true
-        t["Cyclok the Mad"] = true
-        t["Greater Firebird"] = true
-        t["Haarka the Ravenous"] = true
-        t["Jin'Zallah the Sandbringer"] = true
-        t["Kregg Keelhaul"] = true
-        t["Murderous Blisterpaw"] = true
-        t["Omgorn the Lost"] = true
-        t["Soriid the Devourer"] = true
-        t["Spirit of the Damned"] = true
-        t["Warleader Krazzilak"] = true
-        t["Soul of Tanaris"] = true
-
-    elseif zone == "Teldrassil" then
-        t["Blackmoss the Fetid"] = true
-        t["Duskstalker"] = true
-        t["Fury Shelda"] = true
-        t["Grimmaw"] = true
-        t["Threggil"] = true
-        t["Uruson"] = true
-
-    elseif zone == "Temple of Atal'Hakkar" then
-        t["Veyzhak the Cannibal"] = true
-        t["Zekkis"] = true
-        t["Jade"] = true
-
-    elseif zone == "The Barrens" then
-        t["Ambassador Bloodrage"] = true
-        t["Azzere the Skyblade"] = true
-        t["Boahn"] = true
-        t["Brokespear"] = true
-        t["Brontus"] = true
-        t["Captain Gerogg Hammertoe"] = true
-        t["Digger Flameforge"] = true
-        t["Dishu"] = true
-        t["Elder Mystic Razorsnout"] = true
-        t["Engineer Whirleygig"] = true
-        t["Foreman Grills"] = true
-        t["Geopriest Gukk'rok"] = true
-        t["Gesharahan"] = true
-        t["Hagg Taurenbane"] = true
-        t["Heggin Stonewhisker"] = true
-        t["Humar the Pridelord"] = true
-        t["Malgin Barleybrew"] = true
-        t["Rathorian"] = true
-        t["Rocklance"] = true
-        t["Silithid Harvester"] = true
-        t["Sister Rathtalon"] = true
-        t["Sludge Beast"] = true
-        t["Snort the Heckler"] = true
-        t["Stonearm"] = true
-        t["Swiftmane"] = true
-        t["Swinegart Spearhide"] = true
-        t["Takk the Leaper"] = true
-        t["Thunderstomp"] = true
-        t["Kolkar Observer"] = true
-        t["Trigore the Lasher"] = true
-
-    elseif zone == "The Deadmines" then
-        t["Miner Johnson"] = true
-        t["Capo the Mean"] = true
-        t["Marisa du'Paige"] = true
-        t["Brainwashed Noble"] = true
-
-    elseif zone == "The Hinterlands" then
-        t["Grimungous"] = true
-        t["Ironback"] = true
-        t["Jalinde Summerdrake"] = true
-        t["Mith'rethis the Enchanter"] = true
-        t["Old Cliff Jumper"] = true
-        t["Razortalon"] = true
-        t["Retherokk the Berserker"] = true
-        t["The Reak"] = true
-        t["Witherheart the Stalker"] = true
-        t["Zul'arek Hatefowler"] = true
-        t["Death Knight Soulbearer"] = true
-        t["Wildhammer Ambassador"] = true
-        t["Jin'ari"] = true
-
-    elseif zone == "The Stockade" then
-        t["Bruegal Ironknuckle"] = true
-
-    elseif zone == "The Temple of Atal'Hakkar" then
-        t["Veyzhak the Cannibal"] = true
-
-    elseif zone == "Thousand Needles" then
-        t["Achellios the Banished"] = true
-        t["Gibblesnik"] = true
-        t["Harb Foulmountain"] = true
-        t["Heartrazor"] = true
-        t["Ironeye the Invincible"] = true
-        t["Silithid Ravager"] = true
-        t["Steelsnap"] = true
-        t["Rok'Alim the Pounder"] = true
-        t["Vile Sting"] = true
-        t["Scillia Daggerquil"] = true
-
-    elseif zone == "Thunder Bluff" then
-        t["Ghost Howl"] = true
-
-    elseif zone == "Tirisfal Glades" then
-        t["Bayne"] = true
-        t["Deeb"] = true
-        t["Fallen Hero"] = true
-        t["Farmer Solliden"] = true
-        t["Fellicent's Shade"] = true
-        t["Lost Soul"] = true
-        t["Muad"] = true
-        t["Ressan the Needler"] = true
-        t["Sri'skulk"] = true
-        t["Tormented Spirit"] = true
-        t["The Zealot"] = true
-
-    elseif zone == "Uldaman" then
-        t["Digmaster Shovelphlange"] = true
-
-    elseif zone == "Un'Goro Crater" then
-        t["Baron Charr"] = true
-        t["Clutchmother Zavas"] = true
-        t["Gruff"] = true
-        t["King Mosh"] = true
-        t["Ravasaur Matriarch"] = true
-        t["Uhk'loc"] = true
-
-    elseif zone == "The Wailing Caverns" then
-        t["Deviate Faerie Dragon"] = true
-        t["Trigore the Lasher"] = true
-        t["Boahn"] = true
-
-    elseif zone == "Western Plaguelands" then
-        t["Fallen Hero"] = true
-        t["Foreman Jerris"] = true
-        t["Foreman Marcrid"] = true
-        t["Foulmane"] = true
-        t["Lord Maldazzar"] = true
-        t["Putridius"] = true
-        t["Scarlet Executioner"] = true
-        t["Scarlet High Clerist"] = true
-        t["Scarlet Interrogator"] = true
-        t["Scarlet Judge"] = true
-        t["Scarlet Smith"] = true
-        t["The Husk"] = true
-        t["Felendor the Accuser"] = true
-
-    elseif zone == "Westfall" then
-        t["Brack"] = true
-        t["Brainwashed Noble"] = true
-        t["Carver Molsen"] = true
-        t["Foe Reaper 4000"] = true
-        t["Leprithus"] = true
-        t["Marisa du'Paige"] = true
-        t["Master Digger"] = true
-        t["Sergeant Brashclaw"] = true
-        t["Slark"] = true
-        t["Vultros"] = true
-        t["Capo the Mean"] = true
-
-    elseif zone == "Wetlands" then
-        t["Dragonmaw Battlemaster"] = true
-        t["Garneg Charskull"] = true
-        t["Gnawbone"] = true
-        t["Leech Widow"] = true
-        t["Ma'ruk Wyrmscale"] = true
-        t["Mirelow"] = true
-        t["Razormaw Matriarch"] = true
-        t["Sludginn"] = true
-        t["Brundar"] = true
-
-    elseif zone == "Winterspring" then
-        t["Azurous"] = true
-        t["Bone Witch"] = true
-        t["General Colbatann"] = true
-        t["Grizzle Snowpaw"] = true
-        t["Kashoch the Reaver"] = true
-        t["Lady Hederine"] = true
-        t["Mezzir the Howler"] = true
-        t["Rak'shiri"] = true
-        t["Spirit of the Damned"] = true
-        t["Berylgos"] = true
-        t["Tatterhide"] = true
-
-    elseif zone == "Zul'Farrak" then
-        t["Dustwraith"] = true
-        t["Sandarr Dunereaver"] = true
-        t["Zerillis"] = true
-
+                print(player.." found "..name.." "..codes[state].." at "..tostring(date("%m/%d/%y %H:%M:%S",timestamp)))
+            end
+        end
     end
 end

@@ -43,7 +43,7 @@ unitscan:RegisterEvent'STOP_AUTOREPEAT_SPELL' -- ranged autoattack disabled
 
 local BROWN = {.7, .15, .05}
 local YELLOW = {1, 1, .15}
-local CHECK_INTERVAL = 1
+local CHECK_INTERVAL = 5
 
 unitscan_targets = {}
 
@@ -88,24 +88,18 @@ do
 	end
 
 	function unitscan.check_for_targets()
-		for name, _ in unitscan_targets do
-			if name == unitscan.target(name) then
-				unitscan.foundTarget = name
-				unitscan.toggle_target(name)
-				unitscan.play_sound()
-				unitscan.flash.animation:Play()
-				unitscan.button:set_target()			
-			end
-			unitscan.restoreTarget()
-		end
-
 		for name, _ in unitscan_zonetargets do
-			if strupper(name) == unitscan.target(name) then
-				unitscan.foundTarget = name		
-				unitscan.toggle_zonetarget(name)
-				unitscan.play_sound()
-				unitscan.flash.animation:Play()
-				unitscan.button:set_target()
+			if name == unitscan.target(name) then
+				if UnitIsDead("target") then
+					unitscan_add_time(GetZoneText(), name, 0)
+				else
+					-- unitscan.foundTarget = name
+					-- unitscan.toggle_zonetarget(name) -- replace with 'scanned' logic to individually track when a specific mob was last scanned
+					unitscan.play_sound()
+					unitscan.flash.animation:Play()
+					unitscan.button:set_target()
+					unitscan_add_time(GetZoneText(), name, 1) -- passing 1 (alive) for testing purposes
+				end
 			end
 			unitscan.restoreTarget()
 		end
@@ -120,12 +114,8 @@ do
 		PlaySound = _PlaySound
 
 		foundTarget = UnitName("target")		
-		-- Player target
-		if UnitIsPlayer("target") then
-			return foundTarget and strupper(foundTarget)
-		-- NPC target
-		elseif (not UnitIsDead("target")) and UnitCanAttack("target", "player") then
-			return foundTarget and strupper(foundTarget)
+		if UnitCanAttack("target", "player") then
+			return foundTarget -- and strupper(foundTarget)
 		end
 	end
 end
